@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 72" role="img" aria-label="Handled">
+  <text x="0" y="54" font-family="'Archivo, Arial, sans-serif" font-size="60" font-weight="800" fill="#12233D" letter-spacing="-1">handled</text>
+  <g transform="translate(232 20)">
+    <circle cx="20" cy="20" r="19" fill="#1F8A5B"/>
+    <path d="M11 20.5 L17.5 27 L29.5 13.5" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
