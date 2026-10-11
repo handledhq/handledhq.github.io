@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | Handled</title><meta name="robots" content="noindex">
+<script>
+// Instagram encodes "#start" as "%23start"; send those (and any stray path) to the quote form.
+var p=decodeURIComponent(location.pathname+location.search);
+var h=p.indexOf('#'); if(h>-1){location.replace('/'+p.slice(h));}
+else if(/start|quote/i.test(p)){location.replace('/#start');}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fff;color:#0A0A0A;font:400 18px/1.5 Inter,sans-serif;text-align:center;padding:16px}h1{font:800 56px/1 "Bricolage Grotesque",sans-serif;margin:0 0 12px}h1 span{color:#E10600}a{display:inline-block;margin-top:20px;background:#0A0A0A;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600}</style></head>
+<body><div><h1>Not here<span>.</span></h1><p>That page doesn't exist, but we can still handle it.</p><a href="/#start">Get a free quote</a></div></body></html>
