@@ -12,10 +12,10 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Special+Elite&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/site.css">
 <style>
-.alert{display:inline-flex;align-items:center;gap:10px;background:#FDECEC;color:#9B1C1C;border:1px solid #F5C2C2;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
+.alert{font-family:"Special Elite",monospace;display:inline-flex;align-items:center;gap:10px;background:#FDECEC;color:#9B1C1C;border:1px solid #F5C2C2;padding:8px 14px;border-radius:999px;font-size:14px;font-weight:600}
 .alert::before{content:"";width:8px;height:8px;border-radius:50%;background:#D93025}
 .causes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 @media(max-width:860px){.causes{grid-template-columns:1fr}}
@@ -30,7 +30,7 @@
 @media(max-width:800px){.price-row{grid-template-columns:1fr}}
 .pricecard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px}
 .pricecard.main{border:2px solid var(--ink)}
-.pricecard .amt{font-family:Archivo,system-ui,sans-serif;font-weight:800;font-size:52px;line-height:1;margin:10px 0}
+.pricecard .amt{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:52px;line-height:1;margin:10px 0}
 .pricecard p{color:var(--ink-2)}
 .steps.four{grid-template-columns:repeat(4,1fr)}@media(max-width:900px){.steps.four{grid-template-columns:1fr 1fr}}@media(max-width:560px){.steps.four{grid-template-columns:1fr}}
 .honest{margin-top:28px;padding:20px 22px;background:var(--done-soft);border-radius:14px;max-width:820px;font-size:16px}
@@ -51,7 +51,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Handled home">handled<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#1F8A5B"/><path d="M11 20.5 L17.5 27 L29.5 13.5" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a class="brand" href="../" aria-label="Handled home">Handled<span class="dot" aria-hidden="true"></span></a>
     <div class="navlinks">
       <a href="../#services">All services</a>
       <a href="#how">How it works</a>
@@ -64,6 +64,7 @@
 
 <header class="hero">
   <div class="wrap">
+    <div class="stamp" aria-hidden="true">HANDLED</div>
     <span class="alert">Profile suspended · Won't verify · Appeal denied</span>
     <h1 class="serif">Google listing suspended? We'll <em>handle</em> the fix.</h1>
     <p class="lead">Your listing vanished, the phone went quiet, and Google's help pages go in circles. Send us what you have. We find out why it happened, fix what triggered it, build your proof, and file the appeal with you, done right the first time.</p>
