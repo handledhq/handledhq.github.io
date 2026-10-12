@@ -3,48 +3,72 @@
 <title>Blue Spruce Concrete &amp; Landscaping | Concrete &amp; Landscaping in St. George, UT</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--a:#2F6B8A;--a2:#E8F1F5;--ink:#111418;--mut:#5b6470;--line:#e6e8eb}
-*{box-sizing:border-box;margin:0;padding:0}body{font:400 17px/1.6 Inter,system-ui,sans-serif;color:var(--ink);background:#fff}
-a{color:inherit}.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font:400 17px/1.6 Inter,system-ui,sans-serif;color:var(--ink);background:#fff}
+a{color:inherit}.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.disp{font-family:"Archivo",sans-serif;font-weight:800}
 .demo{background:#0A0A0A;color:#fff;font-size:14px;text-align:center;padding:10px 16px}.demo a{color:#fff;font-weight:600}.demo b{color:#FF5A4E}
-header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);z-index:5}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:68px;gap:12px}
-.logo{font:800 21px/1.1 "Archivo",sans-serif;letter-spacing:-.3px}.logo span{color:var(--a)}
-.call{background:var(--a);color:#fff;text-decoration:none;padding:11px 18px;border-radius:999px;font-weight:600;font-size:15px;white-space:nowrap}
-.hero{background:linear-gradient(180deg,var(--a2),#fff);padding:72px 0 64px}
-.badge{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:600}
-.badge .st{color:#F5A623;letter-spacing:1px}
-h1{font:800 clamp(38px,6.5vw,68px)/1.02 "Archivo",sans-serif;letter-spacing:-1.5px;margin:20px 0 18px;max-width:16ch}h1 em{font-style:normal;color:var(--a)}
-.lead{font-size:clamp(17px,2vw,20px);color:var(--mut);max-width:58ch}
-.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-block;background:var(--a);color:#fff;text-decoration:none;padding:15px 26px;border-radius:12px;font-weight:600}.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line)}
-section{padding:72px 0;border-top:1px solid var(--line)}
-h2{font:800 clamp(30px,4vw,44px)/1.1 "Archivo",sans-serif;letter-spacing:-.8px;margin-bottom:10px}.sub{color:var(--mut);margin-bottom:36px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}@media(max-width:760px){.grid{grid-template-columns:1fr}}
-.card{border:1px solid var(--line);border-radius:16px;padding:26px;background:#fff}.card h3{font:800 21px "Archivo",sans-serif;margin-bottom:8px}
-.card h3::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--a);margin-right:10px;vertical-align:2px}
-.card p{color:var(--mut);font-size:16px}
-.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:900px){.revs{grid-template-columns:1fr}}
-.rev{background:var(--a2);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px}.rev .st{color:#F5A623;letter-spacing:2px}
-.rev p{font-size:16px}.rev b{font-size:14px;color:var(--mut)}
-.why{display:flex;gap:14px;flex-wrap:wrap}.why span{border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-weight:600}.why span::before{content:"✓ ";color:var(--a)}
-.cta{background:var(--ink);color:#fff;text-align:center;border:0}.cta h2{color:#fff}.cta .sub{color:#c9ced5}
-footer{padding:30px 0 90px;color:var(--mut);font-size:14px}
-.mcall{display:none}@media(max-width:760px){.mcall{display:block;position:fixed;left:16px;right:16px;bottom:16px;text-align:center;z-index:9}header .call{display:none}}
+header{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);z-index:5;border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:70px;gap:12px}
+.logo{font:800 22px/1.1 "Archivo",sans-serif;letter-spacing:-.3px}.logo span{color:var(--a)}
+nav.links{display:flex;gap:24px;font-size:15px;color:var(--mut)}nav.links a{text-decoration:none}@media(max-width:860px){nav.links{display:none}}
+.call{background:var(--a);color:#fff;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;white-space:nowrap}
+.hero{position:relative;color:#fff;min-height:620px;display:flex;align-items:center;background:#222 url('../img/blue-spruce.jpg') center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,16,.82) 0%,rgba(10,12,16,.55) 55%,rgba(10,12,16,.25) 100%)}
+.hero .wrap{position:relative;padding:80px 20px;width:100%}
+.badge{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:8px 15px;font-size:14px;font-weight:600;backdrop-filter:blur(4px)}
+.badge .st{color:#FFC233}
+h1{font:800 clamp(40px,6.8vw,74px)/1.0 "Archivo",sans-serif;letter-spacing:-1.5px;margin:22px 0 20px;max-width:15ch}h1 em{font-style:normal;color:var(--a2)}
+.lead{font-size:clamp(17px,2vw,21px);color:rgba(255,255,255,.88);max-width:54ch}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-block;background:var(--a);color:#fff;text-decoration:none;padding:16px 28px;border-radius:12px;font-weight:700}.btn.ghost{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.45)}
+.strip{background:var(--ink);color:#fff}.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:22px 20px;text-align:center}
+.strip b{display:block;font:800 26px "Archivo",sans-serif;color:#fff}.strip span{font-size:13px;color:#b9c0c9;text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:700px){.strip .wrap{grid-template-columns:1fr 1fr}}
+section{padding:84px 0}section.alt{background:var(--a2)}
+.kick{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin-bottom:10px}
+h2{font:800 clamp(32px,4.4vw,48px)/1.05 "Archivo",sans-serif;letter-spacing:-.8px;margin-bottom:12px}.sub{color:var(--mut);margin-bottom:40px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:18px;padding:30px;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.02),0 14px 30px -18px rgba(0,0,0,.18)}
+.card .ic{width:44px;height:44px;border-radius:12px;background:var(--a);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:16px}
+.card h3{font:800 22px "Archivo",sans-serif;margin-bottom:8px}.card p{color:var(--mut);font-size:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}@media(max-width:800px){.steps{grid-template-columns:1fr}}
+.step b{font:800 54px/1 "Archivo",sans-serif;color:var(--a)}.step h3{font-size:20px;margin:10px 0 6px}.step p{color:var(--mut)}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:900px){.revs{grid-template-columns:1fr}}
+.rev{background:#fff;border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:14px;border:1px solid var(--line)}
+.rev .st{color:#F5A623;letter-spacing:2px;font-size:18px}.rev p{font-size:16px}.rev b{font-size:14px;color:var(--mut);margin-top:auto}
+.why{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.why span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-weight:600}.why span::before{content:"✓ ";color:var(--a)}
+.area{display:flex;gap:18px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:26px 30px}.area .pin{font-size:30px}
+.faq{max-width:820px}details{border-bottom:1px solid var(--line);padding:20px 0}summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--a);font-size:24px;line-height:1}details[open] summary::after{content:"–"}details p{color:var(--mut);margin-top:10px}
+.cta{position:relative;color:#fff;text-align:center;background:#222 url('../img/blue-spruce.jpg') center/cover}.cta::before{content:"";position:absolute;inset:0;background:rgba(10,12,16,.78)}
+.cta .wrap{position:relative}.cta h2{color:#fff}.cta .sub{color:#d5dae0;margin:0 auto 30px}
+footer{padding:34px 0 96px;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.mcall{display:none}@media(max-width:760px){.mcall{display:block;position:fixed;left:16px;right:16px;bottom:16px;text-align:center;z-index:9;box-shadow:0 10px 30px rgba(0,0,0,.25)}header .call{display:none}.hero{min-height:540px}}
 </style></head><body>
 <div class="demo"><b>●</b> Preview built by <a href="https://handleditforyou.com/">Handled</a> for Blue Spruce Concrete &amp; Landscaping. Not live yet. Like it? It's yours, $0 down. <a href="https://handleditforyou.com/start/">Let's talk →</a></div>
-<header><div class="wrap"><div class="logo">Blue<span> Spruce Concrete &amp; Landscaping</span></div><a class="call" href="tel:+14356696289">Call (435) 669-6289</a></div></header>
+<header><div class="wrap"><div class="logo">Blue<span> Spruce Concrete &amp; Landscaping</span></div><nav class="links"><a href="#services">Services</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a></nav><a class="call" href="tel:+14356696289">Call (435) 669-6289</a></div></header>
 <div class="hero"><div class="wrap">
 <span class="badge"><span class="st">★</span> 4.8 on Google · 165 reviews</span>
 <h1>Concrete & landscaping<br>done <em>right</em> the first time.</h1><p class="lead">Paver patios, concrete, block walls and full backyard landscaping across St. George and Washington County. Hard-working crews, clear communication, and finished work you&#x27;ll show off.</p>
-<div class="ctas"><a class="btn" href="tel:+14356696289">Call (435) 669-6289</a><a class="btn alt" href="#reviews">Read the reviews</a></div>
+<div class="ctas"><a class="btn" href="tel:+14356696289">Call (435) 669-6289</a><a class="btn ghost" href="#reviews">Read the reviews</a></div>
 </div></div>
-<section><div class="wrap"><h2>What we do</h2><p class="sub">Concrete &amp; Landscaping in St. George, UT and nearby.</p><div class="grid"><div class="card"><h3>Paver patios</h3><p>Custom patios and walkways laid level, tight and built to last in the Utah heat.</p></div><div class="card"><h3>Concrete work</h3><p>Driveways, pads, sidewalks and RV parking, poured clean and finished right.</p></div><div class="card"><h3>Block walls</h3><p>Privacy and retaining walls that look sharp and stay straight.</p></div><div class="card"><h3>Backyard landscaping</h3><p>Complete backyard makeovers, from bare dirt to the yard you actually want to use.</p></div></div></div></section>
-<section id="reviews"><div class="wrap"><h2>165 neighbors. 4.8 stars.</h2><p class="sub">Straight from our Google reviews.</p><div class="revs"><div class="rev"><span class="st">★★★★★</span><p>“I wish every company had the integrity and honesty I&#x27;ve experienced with Blue Spruce. They give 100%. Absolutely 100%. Their finished product is gorgeous because they are meticulous with the details.”</p><b>Karen L. · Google review</b></div><div class="rev"><span class="st">★★★★★</span><p>“This team works hard, quick and does an amazing job. They were easy to work with, communicative along the way. I was so impressed I recommended them to my mother.”</p><b>Bryan U. · Google review</b></div><div class="rev"><span class="st">★★★★★</span><p>“The best company in town, quality and professionals, do not hesitate to call them for your next project.”</p><b>Natanael R. · Google review</b></div></div></div></section>
-<section><div class="wrap"><h2>Why Blue Spruce</h2><p class="sub">What our customers say again and again.</p><div class="why"><span>Hard-working, fast crews</span><span>Easy to work with, start to finish</span><span>Meticulous with the details</span></div></div></section>
-<section class="cta"><div class="wrap"><h2>Ready when you are.</h2><p class="sub">Call for a quote. Serving St. George, UT and Washington County.</p><a class="btn" href="tel:+14356696289">Call (435) 669-6289</a></div></section>
-<footer><div class="wrap">© 2026 Blue Spruce Concrete &amp; Landscaping · St. George, UT</div></footer>
+<div class="strip"><div class="wrap"><div><b>4.8★</b><span>Google rating</span></div><div><b>165</b><span>Google reviews</span></div><div><b>Local</b><span>St. George</span></div><div><b>Call</b><span>(435) 669-6289</span></div></div></div>
+<section id="services"><div class="wrap"><div class="kick">What we do</div><h2>Concrete &amp; Landscaping, done right.</h2><p class="sub">Serving St. George and surrounding Washington County.</p><div class="grid"><div class="card"><div class="ic">1</div><h3>Paver patios</h3><p>Custom patios and walkways laid level, tight and built to last in the Utah heat.</p></div><div class="card"><div class="ic">2</div><h3>Concrete work</h3><p>Driveways, pads, sidewalks and RV parking, poured clean and finished right.</p></div><div class="card"><div class="ic">3</div><h3>Block walls</h3><p>Privacy and retaining walls that look sharp and stay straight.</p></div><div class="card"><div class="ic">4</div><h3>Backyard landscaping</h3><p>Complete backyard makeovers, from bare dirt to the yard you actually want to use.</p></div></div></div></section>
+<section class="alt"><div class="wrap"><div class="kick">How it works</div><h2>Three easy steps.</h2><p class="sub">No runaround. Just call and we'll take it from there.</p><div class="steps">
+<div class="step"><b>01</b><h3>Call us</h3><p>Call (435) 669-6289 and tell us what you need.</p></div>
+<div class="step"><b>02</b><h3>Get a quote</h3><p>A clear, fair price before any work starts.</p></div>
+<div class="step"><b>03</b><h3>Consider it done</h3><p>We do the work right and leave the place clean.</p></div></div></div></section>
+<section id="reviews"><div class="wrap"><div class="kick">Reviews</div><h2>165 neighbors. 4.8 stars.</h2><p class="sub">Straight from our Google reviews.</p><div class="revs"><div class="rev"><span class="st">★★★★★</span><p>“I wish every company had the integrity and honesty I&#x27;ve experienced with Blue Spruce. They give 100%. Absolutely 100%. Their finished product is gorgeous because they are meticulous with the details.”</p><b>Karen L. · Google review</b></div><div class="rev"><span class="st">★★★★★</span><p>“This team works hard, quick and does an amazing job. They were easy to work with, communicative along the way. I was so impressed I recommended them to my mother.”</p><b>Bryan U. · Google review</b></div><div class="rev"><span class="st">★★★★★</span><p>“The best company in town, quality and professionals, do not hesitate to call them for your next project.”</p><b>Natanael R. · Google review</b></div></div><div class="why"><span>Hard-working, fast crews</span><span>Easy to work with, start to finish</span><span>Meticulous with the details</span></div></div></section>
+<section class="alt"><div class="wrap"><div class="area"><span class="pin">📍</span><div><h3 class="disp" style="font-size:22px">Proudly local</h3><p style="color:var(--mut)">Serving St. George and surrounding Washington County.</p></div></div></div></section>
+<section id="faq"><div class="wrap"><div class="kick">Questions</div><h2>Good to know.</h2><div class="faq">
+<details><summary>How do I get a quote?</summary><p>Just call (435) 669-6289. Tell us what you need, and we'll give you a clear, fair price before any work starts.</p></details>
+<details><summary>What areas do you serve?</summary><p>We serve St. George and surrounding Washington County. Not sure if you're in range? Give us a call.</p></details>
+<details><summary>What do customers say about us?</summary><p>We're rated 4.8 stars from 165 Google reviews. Read a few above, or see them all on Google.</p></details>
+</div></div></section>
+<section class="cta"><div class="wrap"><h2>Ready when you are.</h2><p class="sub">Call today and get your quote.</p><a class="btn" href="tel:+14356696289">Call (435) 669-6289</a></div></section>
+<footer><div class="wrap"><span>© 2026 Blue Spruce Concrete &amp; Landscaping · St. George, UT</span><span>Photo: Sergej / Unsplash</span></div></footer>
 <a class="btn mcall" href="tel:+14356696289">📞 Call (435) 669-6289</a>
 </body></html>
