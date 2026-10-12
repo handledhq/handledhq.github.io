@@ -118,3 +118,11 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.1 1.45'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.1 1.45'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
 @media(max-width:900px){.stamp{position:static;display:inline-block;margin:0 0 18px;transform:rotate(-6deg)}}
 .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--done);display:inline-block;margin-left:-6px;align-self:flex-end;margin-bottom:9px}
+
+/* logo lockup: name + slogan */
+.brand{flex-direction:column;align-items:flex-start;gap:0;line-height:1}
+.brand .bl{display:flex;align-items:flex-end}
+.brand .tagline{font:600 12.5px/1.2 Inter,system-ui,sans-serif;letter-spacing:.01em;color:var(--ink-2);margin-top:4px}
+.eyebrow{font-family:Inter,system-ui,sans-serif!important;font-weight:700!important;font-size:clamp(18px,2.2vw,22px)!important;letter-spacing:0!important;text-transform:none!important;color:var(--ink)!important}
+.eyebrow::before{width:12px!important;height:12px!important}
+.brand .bl .dot{margin:0 0 6px 3px!important;align-self:flex-end}
