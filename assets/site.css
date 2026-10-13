@@ -144,3 +144,12 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .ridecard ul{list-style:none;display:grid;gap:11px;margin-bottom:24px;font-size:16px}
 .ridecard li{display:flex;gap:10px}.ridecard li::before{content:"✓";color:var(--done);font-weight:700}
 .refer{text-align:center}.referwrap .sub{margin-left:auto;margin-right:auto}
+
+.footsoc{width:100%;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding-bottom:18px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.footsoc a{color:var(--ink,#0A0A0A);text-decoration:none;font-weight:600}
+.footsoc a:hover{color:var(--done)}
+.footsoc .fs-call{color:#fff;background:var(--done);padding:8px 14px;border-radius:999px}
+.footsoc .fs-call:hover{color:#fff;opacity:.9}
+.fs-links{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.fs-links a{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px}
+@media(max-width:640px){.fs-links{margin-left:0}}
