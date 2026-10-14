@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /demo/
 Sitemap: https://handleditforyou.com/sitemap.xml
+Sitemap: https://handleditforyou.com/pros/sitemap.xml
