@@ -10,9 +10,8 @@
 <meta property="og:title" content="Landscaper or lawn care pro with no website? We'll handle it.">
 <meta property="og:description" content="A landscaping or lawn care website built from your real Google reviews: your services, the towns you cover, tap-to-call and a quote button. See it before you pay: $500 one-time + $29/mo hosting, or $0 down at $149/mo.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Special+Elite&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/site.css">
 <style>
 .alert{font-family:"Special Elite",monospace;display:inline-flex;align-items:center;gap:10px;background:var(--done-soft);color:#9B1C1C;border:1px solid #F5C2C2;padding:8px 14px;border-radius:999px;font-size:15px}
@@ -52,7 +51,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Handled home"><span class="bl">Handled<span class="dot" aria-hidden="true"></span></span><span class="tagline">Done-for-you computer work</span></a>
+    <a class="brand" href="../"><span class="bl">Handled<span class="dot" aria-hidden="true"></span></span><span class="tagline">Done-for-you computer work</span></a>
     <div class="navlinks">
       <a href="../#services">All services</a>
       <a href="#what">What we do</a>
@@ -115,7 +114,7 @@
       <p class="sub">You'll get a fixed quote within one business day. No calls required unless you want one.</p>
     </div>
     <div class="formcard">
-      <iframe src="https://api.leadconnectorhq.com/widget/form/iDByg8Fy3N00hPVGRGno" style="width:100%;height:100%;min-height:760px;border:none;border-radius:8px" id="inline-iDByg8Fy3N00hPVGRGno" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Handled — Quote Request" data-height="undefined" data-layout-iframe-id="inline-iDByg8Fy3N00hPVGRGno" data-form-id="iDByg8Fy3N00hPVGRGno" data-cookie-consent="true" data-cookie-consent-provider="auto" title="Handled — Quote Request"></iframe>
+      <iframe loading="lazy" src="https://api.leadconnectorhq.com/widget/form/iDByg8Fy3N00hPVGRGno" style="width:100%;height:100%;min-height:760px;border:none;border-radius:8px" id="inline-iDByg8Fy3N00hPVGRGno" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Handled — Quote Request" data-height="undefined" data-layout-iframe-id="inline-iDByg8Fy3N00hPVGRGno" data-form-id="iDByg8Fy3N00hPVGRGno" data-cookie-consent="true" data-cookie-consent-provider="auto" title="Handled — Quote Request"></iframe>
       <p class="fine">We reply within one business day. Your details are never shared.</p>
     </div>
   </div>
@@ -124,10 +123,10 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Handled. Done-for-you computer work. A service of HQZ LLC, a Wyoming limited liability company.</span>
-    <span><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="https://www.instagram.com/handleditforyou/" rel="me">Instagram @handleditforyou</a> · <a href="../">Back to all services</a></span>
+    <span><a href="/pros/">Washington County Home Pros</a> · <a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="https://www.instagram.com/handleditforyou/" rel="me">Instagram @handleditforyou</a> · <a href="../">Back to all services</a></span>
   </div>
 </footer>
 
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
 </body>
 </html>

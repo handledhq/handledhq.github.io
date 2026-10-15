@@ -10,9 +10,8 @@
 <meta property="og:title" content="Let us watch you work for 30 minutes. Free.">
 <meta property="og:description" content="You share your screen and work as normal. We send back a fixed-price list of what we'd take off your plate.">
 <meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Special+Elite&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/site.css">
 <style>
 .alert{font-family:"Special Elite",monospace;display:inline-flex;align-items:center;gap:10px;background:var(--done-soft);color:#9B1C1C;border:1px solid #F5C2C2;padding:8px 14px;border-radius:999px;font-size:15px}
@@ -58,7 +57,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="../" aria-label="Handled home"><span class="bl">Handled<span class="dot" aria-hidden="true"></span></span><span class="tagline">Done-for-you computer work</span></a>
+    <a class="brand" href="../"><span class="bl">Handled<span class="dot" aria-hidden="true"></span></span><span class="tagline">Done-for-you computer work</span></a>
     <div class="navlinks">
       <a href="../#services">All services</a>
       <a href="#how">How it works</a>
@@ -139,7 +138,7 @@
       <p class="sub">30 minutes, Monday to Friday, 8am to 5pm Mountain time. Your confirmation email has your Google Meet link. Nothing to install: it opens in your browser.</p>
     </div>
     <div class="formcard">
-      <iframe src="https://api.leadconnectorhq.com/widget/booking/uxJeDNGYG8UlJ5MggzQ1" style="width:100%;border:none;overflow:hidden;min-height:820px" scrolling="no" id="uxJeDNGYG8UlJ5MggzQ1_ridealong" title="Book a free ride-along"></iframe>
+      <iframe loading="lazy" src="https://api.leadconnectorhq.com/widget/booking/uxJeDNGYG8UlJ5MggzQ1" style="width:100%;border:none;overflow:hidden;min-height:820px" scrolling="no" id="uxJeDNGYG8UlJ5MggzQ1_ridealong" title="Book a free ride-along"></iframe>
       <p class="fine">Can't find a time that works? Message us on Instagram <a href="https://www.instagram.com/handleditforyou/">@handleditforyou</a>. Your details are never shared.</p>
     </div>
   </div>
@@ -148,10 +147,10 @@
 <footer>
   <div class="wrap"><div class="footsoc"><a class="fs-call" href="tel:+14354290984">Call or text (435) 429-0984</a><a href="mailto:support@handleditforyou.com">support@handleditforyou.com</a><span class="fs-links"><a href="https://www.instagram.com/handleditforyou/" rel="me" target="_blank">Instagram</a><a href="https://www.facebook.com/handleditforyou" rel="me" target="_blank">Facebook</a><a href="https://www.linkedin.com/company/handleditforyou/" rel="me" target="_blank">LinkedIn</a><a href="https://x.com/Handleditforyou" rel="me" target="_blank">X</a><a href="https://www.threads.com/@handleditforyou" rel="me" target="_blank">Threads</a><a href="https://www.tiktok.com/@handleditforyou" rel="me" target="_blank">TikTok</a></span></div>
     <span>© 2026 Handled. Done-for-you computer work. A service of HQZ LLC, a Wyoming limited liability company.</span>
-    <span><a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../">Back to all services</a></span>
+    <span><a href="/pros/">Washington County Home Pros</a> · <a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../">Back to all services</a></span>
   </div>
 </footer>
 
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
 </body>
 </html>
