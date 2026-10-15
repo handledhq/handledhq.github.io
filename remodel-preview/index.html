@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remodel Preview Tool for Contractors | Handled — Done-for-you computer work</title>
+<meta name="description" content="Upload a photo of a kitchen, bathroom or yard and see it remodeled in about 30 seconds. Try it free, then let us put it on your contractor website so homeowners see their new room and ask you for the quote.">
+<link rel="canonical" href="https://handleditforyou.com/remodel-preview/">
+<link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+<meta property="og:title" content="See the new kitchen before the first hammer swings.">
+<meta property="og:description" content="Upload a photo, pick a style, see it remodeled in about 30 seconds. A free tool we put on contractor websites.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://handleditforyou.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://handleditforyou.com/assets/og-image.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+.hero{padding:56px 0 32px}
+.hero h1{font-size:clamp(36px,5vw,60px);max-width:20ch}
+.alert{font-family:"Special Elite",monospace;display:inline-flex;align-items:center;gap:10px;background:var(--done-soft);color:#9B1C1C;border:1px solid #F5C2C2;padding:8px 14px;border-radius:999px;font-size:15px}
+.alert::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--done)}
+.tool{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;margin-top:8px;align-items:start}
+@media(max-width:900px){.tool{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.panel h3{font-size:15px;font-weight:600;margin:18px 0 10px}
+.panel h3:first-child{margin-top:0}
+.drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:2px dashed var(--line);border-radius:14px;padding:22px 16px;text-align:center;cursor:pointer;color:var(--ink-2);font-size:15px;transition:border-color .15s}
+.drop:hover,.drop.over{border-color:var(--ink)}
+.drop b{color:var(--ink)}
+.drop input{display:none}
+.drop .thumb{max-width:100%;max-height:150px;border-radius:10px;display:none}
+.drop.has .thumb{display:block}
+.drop.has .hint{display:none}
+.linkbtn{background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;cursor:pointer;font:inherit;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.panel textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;font-size:15px;resize:vertical}
+.go{width:100%;margin-top:18px;font-size:16px;padding:14px 22px;background:var(--done)}
+.go[disabled]{opacity:.5;cursor:not-allowed}
+.result{position:sticky;top:88px}
+@media(max-width:900px){.result{position:static}}
+.stage{position:relative;background:#F4F4F4;border:1px solid var(--line);border-radius:20px;overflow:hidden;aspect-ratio:3/2;display:flex;align-items:center;justify-content:center}
+.stage .empty{color:var(--muted);text-align:center;padding:24px;font-size:15px}
+.ba{position:absolute;inset:0;display:none;user-select:none;touch-action:none;cursor:ew-resize}
+.ba.on{display:block}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.ba .knob{position:absolute;top:50%;left:var(--x,50%);width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--ink)}
+.ba .tag{position:absolute;top:12px;font-family:"Special Elite",monospace;font-size:12px;letter-spacing:.06em;background:rgba(10,10,10,.75);color:#fff;padding:4px 10px;border-radius:999px}
+.ba .tag.l{left:12px}.ba .tag.r{right:12px;background:var(--done)}
+.busy{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(255,255,255,.88);font-size:15px;color:var(--ink-2);text-align:center;padding:24px}
+.busy.on{display:flex}
+.spin{width:34px;height:34px;border:3px solid var(--line);border-top-color:var(--done);border-radius:50%;animation:sp 0.9s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.progress{width:min(260px,70%);height:4px;background:var(--line);border-radius:4px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--done);transition:width .5s linear}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+.btn.ghost{background:#fff;color:var(--ink)!important;border:1px solid var(--ink)}
+.msg{margin-top:12px;font-size:14px;color:#9B1C1C;display:none}
+.msg.on{display:block}
+.uses{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media(max-width:860px){.uses{grid-template-columns:1fr}}
+.use{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.use h3{font-size:17px;font-weight:600;margin-bottom:6px}
+.use p{font-size:15px;color:var(--ink-2)}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Remodel Preview","applicationCategory":"DesignApplication","operatingSystem":"Any","description":"Upload a photo of a room or yard and see an AI remodel preview in about 30 seconds.","url":"https://handleditforyou.com/remodel-preview/","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"ProfessionalService","name":"Handled","url":"https://handleditforyou.com/"}}
+]}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="../"><span class="bl">Handled<span class="dot" aria-hidden="true"></span></span><span class="tagline">Done-for-you computer work</span></a>
+    <div class="navlinks">
+      <a href="../#services">All services</a>
+      <a href="#try">Try it</a>
+      <a href="#contractors">For contractors</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#start">Get it on your site</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="alert">Free to try. No sign-up.</span>
+    <h1 class="serif">See the new kitchen <em>before</em> the first hammer swings.</h1>
+    <p class="lead">Upload a photo of a kitchen, bathroom or yard, pick a style, and see it remodeled in about 30 seconds. Contractors: this is the tool we put on your website, so homeowners picture the job and then ask you for the quote.</p>
+  </div>
+</header>
+
+<section id="try" style="padding-top:0">
+  <div class="wrap">
+    <div class="tool">
+      <div class="panel">
+        <h3>1. Your photo</h3>
+        <label class="drop" id="drop">
+          <input type="file" id="file" accept="image/*">
+          <img class="thumb" id="thumb" alt="Your photo">
+          <span class="hint"><b>Tap to upload a photo</b><br>or drag one here. Stand in a corner and get the whole room.</span>
+        </label>
+        <p style="margin-top:8px;font-size:14px;color:var(--muted)">No photo handy? <button type="button" class="linkbtn" id="sample">Use our sample kitchen</button></p>
+
+        <h3>2. What is it?</h3>
+        <div class="chips" id="rooms">
+          <button type="button" class="chip" aria-pressed="true" data-v="kitchen">Kitchen</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="bathroom">Bathroom</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="living room">Living room</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="house exterior">Outside of house</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="backyard">Backyard</button>
+        </div>
+
+        <h3>3. Pick a style</h3>
+        <div class="chips" id="styles">
+          <button type="button" class="chip" aria-pressed="true" data-v="warm modern desert style: white oak wood, warm white walls, sand-colored stone, matte black fixtures">Desert modern</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="modern farmhouse style: white shaker cabinets, butcher block and white quartz, black hardware, light wood floors">Modern farmhouse</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="clean contemporary style: flat-panel cabinets, white quartz, minimal hardware, light gray tones">Clean contemporary</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="bold classic style: deep navy painted cabinets, white quartz, brass hardware, warm wood floors">Navy &amp; brass</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="luxury style: marble surfaces, rich walnut wood, statement lighting, gold accents">Luxury</button>
+        </div>
+
+        <h3>Anything specific? <span style="font-weight:400;color:var(--muted)">(optional)</span></h3>
+        <textarea id="note" maxlength="200" placeholder="e.g. add an island, green cabinets, bigger window"></textarea>
+
+        <button type="button" class="btn go" id="go">Show me the remodel</button>
+        <p class="msg" id="msg" role="alert"></p>
+        <p class="fine" style="margin-top:12px">Your photo goes to a free AI service (Hugging Face) to make the preview, and we don't keep it. Please skip photos with people in them. Previews are ideas, not a design or a quote.</p>
+      </div>
+
+      <div class="result">
+        <div class="stage" id="stage">
+          <div class="empty" id="empty">Your before &amp; after shows up here.<br>Drag the slider to compare.</div>
+          <div class="ba" id="ba">
+            <img id="beforeImg" alt="Before">
+            <img id="afterImg" class="after" alt="After: AI remodel preview">
+            <span class="tag l">BEFORE</span><span class="tag r">AFTER</span>
+            <div class="bar"></div><div class="knob" aria-hidden="true">↔</div>
+          </div>
+          <div class="busy" id="busy"><div class="spin"></div><div id="busyText">Remodeling… about 30 seconds</div><div class="progress"><i id="bar"></i></div></div>
+        </div>
+        <div class="actions" id="actions" style="display:none">
+          <a class="btn" id="dl" download="remodel-preview.jpg" href="#">Download the preview</a>
+          <button type="button" class="btn ghost" id="again">Try another style</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contractors">
+  <div class="wrap">
+    <div class="kicker">For contractors</div>
+    <h2>Homeowners who can see it, call.</h2>
+    <p class="sub">Most people can't picture a remodel from a quote. Put this on your website and they can, with your name on it. They upload a photo, see the new room, and the next button is "Get a quote from us." We set it up and handle it.</p>
+    <div class="uses">
+      <div class="use"><h3>On your website</h3><p>A "See your new kitchen" page in your colors, with the styles you actually build. Each preview ends with your quote button and your phone number.</p></div>
+      <div class="use"><h3>At the estimate</h3><p>Snap a photo of the client's kitchen on your phone and show them two or three looks right there at the table, before you write the bid.</p></div>
+      <div class="use"><h3>In your posts</h3><p>Before-and-after previews make strong Facebook and Instagram posts. Label them as previews, then post the real finished job when it's done.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="kicker">Questions</div>
+    <h2>Good questions.</h2>
+    <div class="faq">
+      <details><summary>Is the preview what the finished job will look like?</summary><p>No, it's an idea to get the conversation started. The AI redraws the room in a new style and keeps the layout, but it can invent details, and it doesn't know measurements, codes or what's behind the walls. The real design and price come from the contractor.</p></details>
+      <details><summary>What happens to the photo I upload?</summary><p>It's sent to a free AI service run by Hugging Face to make the preview. We don't save it or see it. Please don't upload photos that show people, house numbers or anything private.</p></details>
+      <details><summary>Why did it say I've used up my free previews?</summary><p>The free AI service gives each internet connection a couple of previews, and they refill over the day. Try again later, or switch from Wi-Fi to cell data.</p></details>
+      <details><summary>Which trades is it good for?</summary><p>Anything you can show in a photo: kitchens, bathrooms, flooring, paint, cabinets, countertops, exteriors, landscaping, pavers and pools.</p></details>
+      <details><summary>Can it go on my website?</summary><p>Yes. We set it up on your site with your colors, your styles and your quote button, and send every request to you. Ask below and we'll show you a version with your name on it.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap contact">
+    <div>
+      <div class="kicker">Get it on your site</div>
+      <h2>Want this with your name on it?</h2>
+      <p class="sub">Write <b>Remodel preview</b> in the box, plus your trade and your website if you have one. We'll reply within one business day with a version built for your business.</p>
+    </div>
+    <div class="formcard">
+      <iframe loading="lazy" src="https://api.leadconnectorhq.com/widget/form/iDByg8Fy3N00hPVGRGno" style="width:100%;height:100%;min-height:760px;border:none;border-radius:8px" id="inline-iDByg8Fy3N00hPVGRGno" data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value="" data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate" data-deactivation-value="" data-form-name="Handled — Quote Request" data-height="undefined" data-layout-iframe-id="inline-iDByg8Fy3N00hPVGRGno" data-form-id="iDByg8Fy3N00hPVGRGno" data-cookie-consent="true" data-cookie-consent-provider="auto" title="Handled — Quote Request"></iframe>
+      <p class="fine">We reply within one business day. Your details are never shared.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><div class="footsoc"><a class="fs-call" href="tel:+14354290984">Call or text (435) 429-0984</a><a href="mailto:support@handleditforyou.com">support@handleditforyou.com</a><span class="fs-links"><a href="https://www.instagram.com/handleditforyou/" rel="me" target="_blank">Instagram</a><a href="https://www.facebook.com/handleditforyou" rel="me" target="_blank">Facebook</a><a href="https://www.linkedin.com/company/handleditforyou/" rel="me" target="_blank">LinkedIn</a><a href="https://x.com/Handleditforyou" rel="me" target="_blank">X</a><a href="https://www.threads.com/@handleditforyou" rel="me" target="_blank">Threads</a><a href="https://www.tiktok.com/@handleditforyou" rel="me" target="_blank">TikTok</a></span></div>
+    <span>© 2026 Handled. Done-for-you computer work. A service of HQZ LLC, a Wyoming limited liability company.</span>
+    <span><a href="/pros/">Washington County Home Pros</a> · <a href="../privacy/">Privacy</a> · <a href="../terms/">Terms</a> · <a href="../">Back to all services</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Free, keyless image editing on public Hugging Face Spaces. Each visitor's
+  // browser calls them directly, so every visitor uses their own free quota.
+  var ENGINES = [
+    {base:"https://black-forest-labs-flux-1-kontext-dev.hf.space", fn:2, data:function(f,p){return [f,p,0,true,2.5,28];}},
+    {base:"https://qwen-qwen-image-edit.hf.space", fn:2, data:function(f,p){return [f,p,0,true,4,30,false];}}
+  ];
+  var $ = function(id){return document.getElementById(id);};
+  var photo = null, beforeURL = null, timer = null;
+
+  function pick(group){
+    group.addEventListener("click", function(e){
+      var b = e.target.closest(".chip"); if(!b) return;
+      group.querySelectorAll(".chip").forEach(function(c){c.setAttribute("aria-pressed", c===b ? "true" : "false");});
+    });
+  }
+  pick($("rooms")); pick($("styles"));
+  function val(id){var c = $(id).querySelector('[aria-pressed="true"]'); return c ? c.dataset.v : "";}
+
+  // Shrink to 1024px max so uploads are quick and the AI gets a sane size.
+  function prep(blob){
+    return new Promise(function(ok, bad){
+      var img = new Image();
+      img.onload = function(){
+        var s = Math.min(1, 1024 / Math.max(img.width, img.height));
+        var c = document.createElement("canvas");
+        c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+        c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+        c.toBlob(function(b){ b ? ok({blob:b, w:c.width, h:c.height}) : bad(new Error("prep")); }, "image/jpeg", 0.9);
+        URL.revokeObjectURL(img.src);
+      };
+      img.onerror = function(){ bad(new Error("That file isn't a photo we can read. Try a JPG or PNG.")); };
+      img.src = URL.createObjectURL(blob);
+    });
+  }
+  function setPhoto(blob){
+    msg("");
+    return prep(blob).then(function(p){
+      photo = p;
+      if (beforeURL) URL.revokeObjectURL(beforeURL);
+      beforeURL = URL.createObjectURL(p.blob);
+      $("thumb").src = beforeURL; $("drop").classList.add("has");
+    }).catch(function(e){ msg(e.message); });
+  }
+
+  $("file").addEventListener("change", function(){ if (this.files[0]) setPhoto(this.files[0]); });
+  var drop = $("drop");
+  ["dragenter","dragover"].forEach(function(t){drop.addEventListener(t,function(e){e.preventDefault();drop.classList.add("over");});});
+  ["dragleave","drop"].forEach(function(t){drop.addEventListener(t,function(e){e.preventDefault();drop.classList.remove("over");});});
+  drop.addEventListener("drop", function(e){ var f = e.dataTransfer.files[0]; if (f) setPhoto(f); });
+  $("sample").addEventListener("click", function(){
+    fetch("sample-kitchen.jpg").then(function(r){return r.blob();}).then(setPhoto);
+    $("rooms").querySelector('[data-v="kitchen"]').click();
+  });
+
+  function msg(t){ var m = $("msg"); m.textContent = t; m.classList.toggle("on", !!t); }
+  function busy(on, text){
+    $("busy").classList.toggle("on", on);
+    if (text) $("busyText").textContent = text;
+    clearInterval(timer);
+    if (on){
+      var t0 = Date.now(); $("bar").style.width = "0";
+      timer = setInterval(function(){ $("bar").style.width = Math.min(95, (Date.now()-t0)/400) + "%"; }, 500);
+    }
+  }
+
+  function prompt(){
+    var room = val("rooms"), style = val("styles"), note = $("note").value.trim();
+    var outside = /exterior|backyard/.test(room);
+    var p = "Remodel this " + room + " in a " + style + ".";
+    if (note) p += " Also: " + note + ".";
+    p += outside
+      ? " Keep the same house, property lines, camera angle and perspective. Photorealistic real estate photo, daylight."
+      : " Keep the exact same room layout, walls, windows, doorways, camera angle and perspective. Photorealistic interior photo, natural light, clean and finished.";
+    return p;
+  }
+
+  function quota(t){ return /quota|exceeded|ZeroGPU|GPU duration|rate limit|too many/i.test(t || ""); }
+
+  // Gradio queue API: unlike /call, it reports the real error (e.g. the free quota).
+  async function run(engine, p){
+    var api = engine.base + "/gradio_api";
+    var fd = new FormData(); fd.append("files", photo.blob, "photo.jpg");
+    var up = await fetch(api + "/upload", {method:"POST", body:fd});
+    if (!up.ok) throw new Error("upload " + up.status);
+    var path = (await up.json())[0];
+    var file = {path:path, meta:{_type:"gradio.FileData"}};
+    var sh = Math.random().toString(36).slice(2);
+    var join = await fetch(api + "/queue/join", {method:"POST", headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({data:engine.data(file, p), fn_index:engine.fn, session_hash:sh, event_data:null, trigger_id:null})});
+    if (!join.ok) throw new Error("join " + join.status);
+    var text = await (await fetch(api + "/queue/data?session_hash=" + sh)).text();
+    var lines = text.split("\n");
+    for (var i = 0; i < lines.length; i++){
+      if (lines[i].indexOf("data: ") !== 0) continue;
+      var m; try { m = JSON.parse(lines[i].slice(6)); } catch (e) { continue; }
+      if (m.msg !== "process_completed") continue;
+      if (!m.success){ var err = new Error((m.output && m.output.error) || m.title || "failed"); err.quota = quota(err.message + " " + (m.title || "")); throw err; }
+      var out = m.output.data[0];
+      if (Array.isArray(out)) out = out[0];
+      if (out && out.image) out = out.image;
+      var url = out && (out.url || (out.path && api + "/file=" + out.path));
+      if (url) return url;
+    }
+    throw new Error("no result");
+  }
+
+  $("go").addEventListener("click", async function(){
+    msg("");
+    if (!photo){ msg("Add a photo first, or use our sample kitchen."); return; }
+    var p = prompt(), go = this, url = null, sawQuota = false;
+    go.disabled = true; $("empty").style.display = "none"; $("actions").style.display = "none";
+    busy(true, "Remodeling… about 30 seconds");
+    for (var i = 0; i < ENGINES.length && !url; i++){
+      try { url = await run(ENGINES[i], p); }
+      catch (e){
+        if (e.quota){ sawQuota = true; break; }
+        if (i + 1 < ENGINES.length) busy(true, "Busy right now, trying our backup… about a minute");
+      }
+    }
+    busy(false); go.disabled = false;
+    if (!url){
+      if (!$("ba").classList.contains("on")) $("empty").style.display = "";
+      msg(sawQuota
+        ? "You've used the free previews on this connection for now. They refill over the day. Try again later, or switch from Wi-Fi to cell data."
+        : "The free AI service is busy right now. Give it a minute and try again.");
+      return;
+    }
+    // Fetch the result as a blob so the download link works across origins.
+    var blob = await (await fetch(url)).blob();
+    var afterURL = URL.createObjectURL(blob);
+    $("beforeImg").src = beforeURL; $("afterImg").src = afterURL;
+    $("stage").style.aspectRatio = photo.w + "/" + photo.h;
+    $("ba").classList.add("on"); $("ba").style.setProperty("--x", "50%");
+    $("dl").href = afterURL; $("actions").style.display = "flex";
+    if (window.innerWidth < 900) $("stage").scrollIntoView({behavior:"smooth", block:"center"});
+  });
+
+  $("again").addEventListener("click", function(){ $("styles").scrollIntoView({behavior:"smooth", block:"center"}); });
+
+  // Before/after slider: drag anywhere on the image.
+  var ba = $("ba"), dragging = false;
+  function slide(e){ var r = ba.getBoundingClientRect(); var x = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)); ba.style.setProperty("--x", (x*100) + "%"); }
+  ba.addEventListener("pointerdown", function(e){ dragging = true; ba.setPointerCapture(e.pointerId); slide(e); });
+  ba.addEventListener("pointermove", function(e){ if (dragging) slide(e); });
+  ba.addEventListener("pointerup", function(){ dragging = false; });
+})();
+</script>
+<script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
+</body>
+</html>
