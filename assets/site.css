@@ -212,3 +212,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
 .fs-links{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
 .fs-links a{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:13px}
 @media(max-width:640px){.fs-links{margin-left:0}}
+/* buy-now (2026-10-16) */
+.lead + .get{margin-top:14px;font-size:16px;color:var(--ink-2);max-width:720px}
+.pricebox .btn.buy{margin-top:16px}
+.ctas .btn.buy{background:#E10600}
+.ctas .btn.buy:hover{background:var(--ink)}
+.now{margin-top:28px;max-width:760px;font-size:17px;color:var(--ink-2)}
+.buynote{margin-top:10px;font-size:13px;color:var(--muted);max-width:760px}
