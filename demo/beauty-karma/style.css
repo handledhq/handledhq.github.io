@@ -131,7 +131,13 @@ footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
 footer a{text-decoration:none}footer a:hover{color:#fff}
 footer .logo b,footer .logo small{color:var(--cream)}
 footer h5{color:#fff;font:500 13px "Jost";letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
-.credit{grid-column:1/-1;border-top:1px solid #2c2a28;padding-top:18px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.credit{grid-column:1/-1;border-top:1px solid #2c2a28;padding-top:22px;font-size:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.hbadge{display:inline-flex;align-items:center;gap:14px;border:1px solid #3a3532;padding:11px 18px;text-decoration:none;transition:border-color .2s,background .2s}
+.hbadge:hover{border-color:#E10600;background:#1d1b1a}
+.hb-s{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9f968c}
+.hb-logo{font:800 24px/1 'Bricolage Grotesque',Arial,sans-serif;letter-spacing:-.5px;color:#fff;display:inline-flex;align-items:flex-end}
+.hb-logo i{width:7px;height:7px;border-radius:50%;background:#E10600;margin:0 0 4px 2px}
+.hb-cta{font-size:13px;color:#cfc6bc;border-left:1px solid #3a3532;padding-left:14px}.hbadge:hover .hb-cta{color:#fff}
 .mbar{display:none}
 @media(max-width:980px){.g5{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr}.split,.hero .wrap,.thero .wrap{grid-template-columns:1fr;gap:34px}footer .wrap{grid-template-columns:1fr 1fr}.ig{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){
