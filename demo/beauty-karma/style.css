@@ -11,6 +11,7 @@ a{color:inherit}
 .logo b{font:500 22px/1 "Cormorant Garamond",serif;letter-spacing:.14em}
 .logo b i{font:400 30px/0 "Pinyon Script",cursive;letter-spacing:0;color:var(--taupe)}
 .logo small{font-size:9.5px;letter-spacing:.42em;margin-top:6px}
+.lg{height:58px;width:auto}.lg-light{filter:invert(1);mix-blend-mode:multiply}.lg-dark{height:64px;mix-blend-mode:screen}
 .nav{display:flex;gap:20px;font-size:14px;letter-spacing:.04em}
 .nav a{text-decoration:none}.nav a:hover{color:var(--taupe)}
 .btn{display:inline-block;white-space:nowrap;background:var(--ink);color:#fff;text-decoration:none;padding:14px 28px;font-size:13.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);transition:.2s}
