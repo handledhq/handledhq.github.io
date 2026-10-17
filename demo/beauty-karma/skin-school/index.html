@@ -51,6 +51,13 @@
 <div class="mbar"><a href="https://www.vagaro.com/beautykarmaskinandlaser/book-now">Book now</a><a href="tel:+18018886235">Call</a></div>
 <script>
 document.querySelectorAll('.ba input').forEach(r=>{const b=r.closest('.ba');const s=()=>b.style.setProperty('--x',r.value+'%');r.addEventListener('input',s);s();});
+(function(){const h=document.querySelector('.ba.hint');if(!h||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+const r=h.querySelector('input');let stop=false,timer;const set=v=>{h.style.setProperty('--x',v+'%');r.value=v;};
+['pointerdown','touchstart','input','keydown'].forEach(e=>h.addEventListener(e,()=>{stop=true;clearTimeout(timer);},{passive:true}));
+const keys=[[0,50],[700,28],[1500,72],[2200,50]],ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+function play(){if(stop)return;const t0=performance.now();(function f(now){if(stop)return;const t=now-t0;let i=1;while(i<keys.length&&t>keys[i][0])i++;
+if(i>=keys.length){set(50);timer=setTimeout(play,4000);return;}const[a,va]=keys[i-1],[b,vb]=keys[i];set(va+(vb-va)*ease((t-a)/(b-a)));requestAnimationFrame(f);})(t0);}
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();setTimeout(play,600);}},{threshold:.5}).observe(h);})();
 document.querySelectorAll('[data-tabs]').forEach(g=>{const tabs=g.querySelectorAll('.tab'),panes=g.querySelectorAll('.pane');tabs.forEach((t,i)=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('on'));panes.forEach(x=>x.classList.remove('on'));t.classList.add('on');panes[i].classList.add('on')}))});
 const chips=document.querySelectorAll('.chip'),rec=document.getElementById('rec');
 chips.forEach(c=>c.addEventListener('click',()=>{chips.forEach(x=>x.classList.remove('on'));c.classList.add('on');rec.hidden=false;
