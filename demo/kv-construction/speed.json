@@ -1,0 +1,10 @@
+{
+ "performance": 100,
+ "accessibility": 100,
+ "best-practices": 100,
+ "seo": 100,
+ "lcp": "1.2\u00a0s",
+ "date": "2026-10-18",
+ "date_long": "Oct 18, 2026",
+ "tool": "Lighthouse mobile"
+}
