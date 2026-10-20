@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Pinyon+Script&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/mascot-sm.jpg" imagesrcset="img/mascot-sm.jpg 472w, img/mascot.jpg 944w" imagesizes="(max-width: 860px) 90vw, 520px">
+<link rel="preload" as="image" href="img/anim/calais-run.webp">
 <style>
 :root{
   --cream:#FFF0E5; --cream2:#FBE4D3; --ink:#141012; --ink2:#3B3236; --red:#C8102E; --red2:#9E0B23;
@@ -51,32 +51,59 @@ h2{font-size:clamp(34px,5vw,58px)}
 @media (max-width:860px){.nav ul{display:none}}
 @media (max-width:420px){.nav .btn{display:none}}
 
-/* hero */
-.hero{position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding-top:40px;padding-bottom:30px}
-.hero h1{font-size:clamp(46px,7.2vw,92px);margin:18px 0 20px}
-.hero h1 em{font-style:italic;color:var(--red);position:relative;white-space:nowrap}
-.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.14em;background:var(--gold2);z-index:-1;border-radius:4px}
-.hero p.lede{font-size:clamp(18px,1.6vw,21px);max-width:34em;color:var(--ink2)}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 18px}
+/* hero: Runaway Heels */
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle,rgba(200,16,46,.09) 2px,transparent 2.5px) 0 0/26px 26px,var(--cream)}
+.hero .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:20px;align-items:center;padding-top:34px;padding-bottom:30px}
+.hero h1{font-size:clamp(36px,4.6vw,64px);margin:20px 0 16px}
+.hero h1 em{font-style:italic;color:var(--red)}
+.hero p.lede{font-size:clamp(18px,1.6vw,21px);max-width:32em;color:var(--ink2)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 18px}
 .nojoke{font-size:14px;color:var(--ink2);display:flex;gap:18px;flex-wrap:wrap}
 .nojoke span::before{content:"✕ ";color:var(--red);font-weight:700}
-.art{position:relative;justify-self:center;max-width:520px;width:100%}
-.art img{width:100%;height:auto;aspect-ratio:944/1088;border-radius:0 0 260px 260px / 0 0 120px 120px}
-.bubble{position:absolute;background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:12px 16px;font:700 italic 19px/1.2 var(--serif);box-shadow:5px 5px 0 var(--ink);max-width:220px}
-.bubble::after{content:"";position:absolute;width:18px;height:18px;background:#fff;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg)}
-.b1{top:4%;left:-40px;transform:rotate(-5deg)}
-.b1::after{right:22px;bottom:-11px}
-.seal{position:absolute;left:-30px;bottom:8%;width:132px;height:132px;animation:spin 18s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){.seal,.tick-in{animation:none!important}}
+/* the clothes-trimmed wordmark */
+.wm{font-family:var(--script);font-weight:400;color:var(--red);line-height:1;white-space:nowrap;position:relative;display:inline-block;font-size:var(--s,120px);padding-top:.5em}
+.wm .c{position:relative;display:inline-block}
+.wm .hanger{position:absolute;left:.02em;top:-.62em;width:.62em;transform-origin:50% 8%;animation:swing 2.6s ease-in-out infinite}
+@keyframes swing{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.wm .i{position:relative;display:inline-block}
+.wm .bag{position:absolute;left:50%;top:.08em;width:.2em;transform:translateX(-50%);animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate(-50%,0) rotate(-6deg)}50%{transform:translate(-50%,-.05em) rotate(6deg)}}
+.wm .heel{display:inline-block;width:.27em;vertical-align:.5em;margin:0 -.06em 0 -.02em;transform-origin:50% 100%;animation:drop 3.2s cubic-bezier(.3,1.5,.5,1) infinite}
+@keyframes drop{0%{transform:translateY(-1.2em) rotate(-40deg);opacity:0}14%{opacity:1}26%{transform:translateY(0) rotate(14deg)}34%{transform:translateY(-.08em) rotate(8deg)}42%,88%{transform:translateY(0) rotate(12deg);opacity:1}100%{transform:translateY(0) rotate(12deg);opacity:0}}
+.wm .sub{display:block;font:900 calc(var(--s,120px) * .17)/1 var(--serif);letter-spacing:.5em;text-transform:uppercase;color:var(--ink);text-align:center;margin-top:1.15em;padding-left:.5em}
+.pearls{position:absolute;left:10%;right:6%;top:1.56em;height:.26em;pointer-events:none}
+.pearls svg{width:100%;height:100%;overflow:visible}
+.pearls .p{animation:shine 2.4s ease-in-out infinite}
+@keyframes shine{0%,100%{fill:#FFFDF8}50%{fill:#FFF3C9}}
+/* the running scene */
+.stage{position:relative;height:min(42vw,540px);width:100%}
+.floor{position:absolute;left:0;right:0;bottom:6%;height:3px;background:repeating-linear-gradient(90deg,var(--ink) 0 18px,transparent 18px 30px);opacity:.18}
+.runner{position:absolute;bottom:4%;right:0;width:88%;animation:enter 1.5s cubic-bezier(.2,.8,.2,1) both}
+.runner img{width:100%;height:auto;display:block;animation:stride .42s ease-in-out infinite alternate}
+@keyframes enter{from{transform:translateX(-90vw)}to{transform:translateX(0)}}
+@keyframes stride{from{transform:translateY(0) rotate(-1.2deg)}to{transform:translateY(-3.5%) rotate(1.2deg)}}
+.puff{position:absolute;bottom:4%;width:30px;height:30px;border-radius:50%;background:#fff;opacity:0;animation:puff 1.2s ease-out infinite}
+@keyframes puff{0%{opacity:.8;transform:scale(.3)}100%{opacity:0;transform:scale(1.8) translateX(-60px)}}
+.shoe{position:absolute;width:min(9vw,110px);left:38%;bottom:24%;opacity:0;animation:fly 3.6s cubic-bezier(.25,.6,.4,1) infinite}
+.shoe img{width:100%;height:auto;display:block}
+.shoe.s2{animation-delay:1.2s;bottom:16%;width:min(8vw,100px)}
+.shoe.s3{animation-delay:2.4s;bottom:10%;width:min(8vw,96px)}
+@keyframes fly{0%{opacity:0;transform:translate(0,0) rotate(0)}6%{opacity:1}45%{transform:translate(-90%,-160%) rotate(-300deg)}75%{transform:translate(-170%,95%) rotate(-560deg)}82%{transform:translate(-182%,70%) rotate(-590deg)}90%,96%{opacity:1;transform:translate(-190%,95%) rotate(-600deg)}100%{opacity:0;transform:translate(-190%,95%) rotate(-600deg)}}
+.oops{position:absolute;z-index:3;left:0;top:2%;font:700 italic 21px/1.2 var(--serif);background:#fff;border:2.5px solid var(--ink);border-radius:18px;padding:10px 14px;box-shadow:4px 4px 0 var(--ink);animation:pop 3.6s ease-in-out infinite}
+@keyframes pop{0%,8%{transform:rotate(-4deg) scale(.2);opacity:0}16%,86%{transform:rotate(-4deg) scale(1);opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.hero *,.ava *,.tick-in{animation:none!important}.shoe{opacity:1}}
 @media (max-width:860px){
-  .hero .wrap{grid-template-columns:1fr;padding-top:24px}
-  .art{max-width:420px;order:-1}
-  .b1{left:0;top:2%;font-size:16px;max-width:170px}
-  .seal{width:96px;height:96px;left:auto;right:0;bottom:4%}
+  .hero .wrap{grid-template-columns:1fr;text-align:center;padding-top:18px;gap:0}
+  .hero .wrap>div:first-child{display:contents}
+  .hero .wm{order:1;justify-self:center}
+  .hero .stage{order:2;margin-top:-4px}
+  .hero h1,.hero p.lede,.hero .ctas,.hero .nojoke{order:3}
+  .hero .ctas,.nojoke{justify-content:center}
+  .hero p.lede{margin:0 auto}
+  .stage{height:66vw}
+  .shoe{width:15vw}.shoe.s2,.shoe.s3{width:13vw}
+  .oops{font-size:14px;max-width:62%;text-align:left}
 }
-
 /* ticker */
 .ticker{background:var(--ink);color:var(--gold2);overflow:hidden;white-space:nowrap;padding:16px 0;border-block:3px solid var(--gold)}
 .tick-in{display:inline-block;animation:tick 38s linear infinite;font:900 italic 24px/1 var(--serif);letter-spacing:.06em}
@@ -161,6 +188,20 @@ section{padding:96px 0}
 .closet .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:40px}
 .closet .btn-line{color:#fff;box-shadow:inset 0 0 0 2px #fff}
 
+/* closet avalanche */
+.ava{position:relative;background:var(--blush,#FFD1E6);overflow:hidden}
+.ava .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.ava h2 .script{color:var(--red);display:block;font-size:1.1em;margin-top:.1em}
+.ava p{font-size:19px;color:var(--ink2);max-width:30em;margin:16px 0 26px}
+.frame{position:relative;border:4px solid var(--ink);border-radius:30px;box-shadow:12px 12px 0 var(--red);animation:shake 4s ease-in-out infinite}
+.frame img{width:100%;height:auto;display:block;border-radius:26px}
+@keyframes shake{0%,70%,100%{transform:rotate(0)}74%{transform:rotate(-1.4deg)}78%{transform:rotate(1.4deg)}82%{transform:rotate(-.8deg)}86%{transform:rotate(0)}}
+.frame .stamp{position:absolute;right:-16px;top:-16px;width:112px;height:112px;border-radius:50%;background:var(--red);color:var(--gold2);display:grid;place-items:center;text-align:center;font:900 italic 20px/1.05 var(--serif);border:3px solid var(--ink);transform:rotate(12deg)}
+.rain{position:absolute;inset:0;pointer-events:none;z-index:1}
+.rain img{position:absolute;top:-140px;width:76px;height:auto;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(1400px) rotate(720deg)}}
+@media (max-width:860px){.ava .wrap{grid-template-columns:1fr}.rain img{width:52px}}
+
 /* mom */
 .mom .card{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:#fff;border:2.5px solid var(--ink);border-radius:30px;padding:40px;box-shadow:12px 12px 0 var(--pink)}
 .mom .card .big{font:900 italic clamp(30px,4vw,46px)/1.05 var(--serif)}
@@ -222,8 +263,20 @@ footer .by{font-size:13px;opacity:.7}
 <header class="hero" id="top">
   <div class="wrap">
     <div>
-      <div class="kick">Luxury consignment &middot; Las Vegas &middot; San Diego</div>
-      <h1>Your closet is sitting on a <em>small fortune.</em></h1>
+      <div class="wm" style="--s:clamp(66px,9vw,120px)" role="img" aria-label="Calais's Consignment">
+        <span class="c"><svg class="hanger" viewBox="0 0 100 150" aria-hidden="true">
+          <defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE8A3"/><stop offset=".5" stop-color="#D4A53F"/><stop offset="1" stop-color="#9C7424"/></linearGradient></defs>
+          <path d="M50 18c0-10 9-15 16-11s7 15-1 19L50 34" fill="none" stroke="url(#gd)" stroke-width="5" stroke-linecap="round"/>
+          <path d="M50 34L6 62h88z" fill="none" stroke="url(#gd)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M34 62h32l-3 16 22 64H15l22-64z" fill="#141012"/>
+          <path d="M34 62c6 8 26 8 32 0" fill="none" stroke="#C8102E" stroke-width="4"/>
+          <circle cx="50" cy="96" r="2.5" fill="#F5D78A"/><circle cx="44" cy="112" r="2" fill="#F5D78A"/><circle cx="58" cy="122" r="2" fill="#F5D78A"/>
+        </svg>C</span>ala<span class="i">ı<svg class="bag" viewBox="0 0 40 40" aria-hidden="true"><path d="M10 14c0-14 20-14 20 0" fill="none" stroke="#D4A53F" stroke-width="3"/><rect x="2" y="13" width="36" height="25" rx="5" fill="#C8102E"/><path d="M2 21h36M14 13v25M26 13v25" stroke="#9E0B23" stroke-width="1.6"/><circle cx="20" cy="23" r="4" fill="#F5D78A"/></svg></span>s<svg class="heel" viewBox="0 0 60 90" aria-hidden="true"><path d="M2 36C18 34 34 18 42 4c3-5 11-5 13 1 3 12-1 26-8 34L18 46c-7 2-14-1-16-10z" fill="#141012"/><path d="M42 40l5 46h6l-1-50z" fill="#141012"/><path d="M4 41c11 4 28 2 44-5" fill="none" stroke="#C8102E" stroke-width="5"/></svg>s
+        <span class="pearls" aria-hidden="true"><svg viewBox="0 0 400 40" preserveAspectRatio="none"><path d="M0 4C120 40 280 40 400 4" fill="none" stroke="#E9DCCB" stroke-width="1.5"/>
+          <g stroke="#B89F7A" stroke-width="1.4"><circle class="p" cx="20" cy="10" r="5"/><circle class="p" cx="52" cy="18" r="5" style="animation-delay:.15s"/><circle class="p" cx="86" cy="24" r="5" style="animation-delay:.3s"/><circle class="p" cx="122" cy="29" r="5" style="animation-delay:.45s"/><circle class="p" cx="160" cy="31" r="5" style="animation-delay:.6s"/><circle class="p" cx="200" cy="32" r="5" style="animation-delay:.75s"/><circle class="p" cx="240" cy="31" r="5" style="animation-delay:.9s"/><circle class="p" cx="278" cy="29" r="5" style="animation-delay:1.05s"/><circle class="p" cx="314" cy="24" r="5" style="animation-delay:1.2s"/><circle class="p" cx="348" cy="18" r="5" style="animation-delay:1.35s"/><circle class="p" cx="380" cy="10" r="5" style="animation-delay:1.5s"/></g></svg></span>
+        <span class="sub">Consignment</span>
+      </div>
+      <h1>She's running to your closet. <em>Your heels are running to the bank.</em></h1>
       <p class="lede">Too busy to haul your designer pieces to a consignment store? Don't. Snap a few photos of the shoes, bags and clothes you're done with and send them to Calais. She takes it from there.</p>
       <div class="ctas">
         <a class="btn btn-red" href="#send">📸 Upload your closet</a>
@@ -231,16 +284,14 @@ footer .by{font-size:13px;opacity:.7}
       </div>
       <div class="nojoke"><span>No forms</span><span>No questionnaires</span><span>No hauling bags across town</span></div>
     </div>
-    <div class="art">
-      <picture><img src="img/mascot-sm.jpg" srcset="img/mascot-sm.jpg 472w, img/mascot.jpg 944w" sizes="(max-width: 860px) 90vw, 520px" width="944" height="1088" alt="Illustrated Calais with big blonde waves, a black blazer and a red quilted bag, surrounded by designer heels and purses" fetchpriority="high"></picture>
-      <div class="bubble b1">Show me the closet, darling.</div>
-      <svg class="seal" viewBox="0 0 200 200" aria-hidden="true">
-        <defs><path id="c" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0"/></defs>
-        <circle cx="100" cy="100" r="98" fill="#C8102E"/>
-        <circle cx="100" cy="100" r="88" fill="none" stroke="#F5D78A" stroke-width="2" stroke-dasharray="3 5"/>
-        <text font-family="DM Sans, sans-serif" font-weight="700" font-size="17" letter-spacing="4.2" fill="#fff"><textPath href="#c">TOP DOLLAR &#x2726; ZERO HASSLE &#x2726; </textPath></text>
-        <text x="100" y="116" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-weight="900" font-size="46" fill="#F5D78A">$$$</text>
-      </svg>
+    <div class="stage" aria-hidden="true">
+      <div class="floor"></div>
+      <div class="oops">Oops! Don't worry, darling. That one's sold.</div>
+      <div class="shoe"><img src="img/anim/shoe-black.webp" width="170" height="132" alt=""></div>
+      <div class="shoe s2"><img src="img/anim/shoe-pink.webp" width="158" height="128" alt=""></div>
+      <div class="shoe s3"><img src="img/anim/shoe-gold.webp" width="146" height="128" alt=""></div>
+      <div class="runner"><img src="img/anim/calais-run.webp" width="1000" height="763" alt="" fetchpriority="high"></div>
+      <span class="puff" style="left:46%;animation-delay:.1s"></span><span class="puff" style="left:52%;animation-delay:.5s"></span><span class="puff" style="left:58%;animation-delay:.9s"></span>
     </div>
   </div>
 </header>
@@ -356,6 +407,26 @@ footer .by{font-size:13px;opacity:.7}
       <a class="btn btn-red" href="#send">Get your pieces photographed</a>
       <a class="btn btn-line" href="https://poshmark.com/closet/cal2000" target="_blank" rel="noopener">Shop her Poshmark closet</a>
     </div>
+  </div>
+</section>
+
+<section class="ava">
+  <div class="rain" aria-hidden="true">
+    <img src="img/anim/shoe-pink.webp" alt="" loading="lazy" style="left:4%;animation-duration:6s;animation-delay:-1s">
+    <img src="img/anim/shoe-black.webp" alt="" loading="lazy" style="left:20%;animation-duration:7.5s;animation-delay:-4s;width:60px">
+    <img src="img/anim/shoe-gold.webp" alt="" loading="lazy" style="left:38%;animation-duration:6.8s;animation-delay:-2.5s">
+    <img src="img/anim/shoe-black.webp" alt="" loading="lazy" style="left:56%;animation-duration:8s;animation-delay:-6s">
+    <img src="img/anim/shoe-pink.webp" alt="" loading="lazy" style="left:72%;animation-duration:7s;animation-delay:-3.2s;width:58px">
+    <img src="img/anim/shoe-gold.webp" alt="" loading="lazy" style="left:90%;animation-duration:6.4s;animation-delay:-5s">
+  </div>
+  <div class="wrap">
+    <div>
+      <div class="kick">Closet overflowing?</div>
+      <h2>Open the door. Let it all fall out. <span class="script">Calais will catch it.</span></h2>
+      <p>Snap a photo of the mess, exactly as it is. Calais sorts the keepers from the cash, photographs it all, and sells it for what it's worth.</p>
+      <a class="btn btn-red" href="#send">📸 Send her a photo of the mess</a>
+    </div>
+    <div class="frame"><img src="img/anim/avalanche.webp" width="900" height="900" alt="Cartoon Calais laughing as designer shoes and handbags tumble out of an overflowing closet" loading="lazy"><div class="stamp">No<br>forms!</div></div>
   </div>
 </section>
 
