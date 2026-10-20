@@ -76,11 +76,11 @@ h2{font-size:clamp(34px,5vw,58px)}
 .pearls .p{animation:shine 2.4s ease-in-out infinite}
 @keyframes shine{0%,100%{fill:#FFFDF8}50%{fill:#FFF3C9}}
 /* the running scene */
-.stage{position:relative;height:min(42vw,540px);width:100%}
+.stage{position:relative;height:min(42vw,540px);width:100%;overflow:hidden}
 .floor{position:absolute;left:0;right:0;bottom:6%;height:3px;background:repeating-linear-gradient(90deg,var(--ink) 0 18px,transparent 18px 30px);opacity:.18}
 .runner{position:absolute;bottom:4%;right:0;width:88%;animation:enter 1.5s cubic-bezier(.2,.8,.2,1) both}
 .runner img{width:100%;height:auto;display:block;animation:stride .42s ease-in-out infinite alternate}
-@keyframes enter{from{transform:translateX(-90vw)}to{transform:translateX(0)}}
+@keyframes enter{from{transform:translateX(-110%)}to{transform:translateX(0)}}
 @keyframes stride{from{transform:translateY(0) rotate(-1.2deg)}to{transform:translateY(-3.5%) rotate(1.2deg)}}
 .puff{position:absolute;bottom:4%;width:30px;height:30px;border-radius:50%;background:#fff;opacity:0;animation:puff 1.2s ease-out infinite}
 @keyframes puff{0%{opacity:.8;transform:scale(.3)}100%{opacity:0;transform:scale(1.8) translateX(-60px)}}
