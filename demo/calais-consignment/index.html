@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calais's Consignment | Luxury Consignment, Las Vegas &amp; San Diego</title>
+<meta name="description" content="Too busy to haul your designer pieces to a consignment store? Snap photos of your closet and send them to Calais. Luxury shoes, handbags and clothes. Las Vegas and San Diego house calls.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Calais's Consignment">
+<meta property="og:description" content="Your closet is sitting on a small fortune. Snap it, send it to Calais, get paid.">
+<meta property="og:image" content="https://handleditforyou.com/demo/calais-consignment/img/og.jpg">
+<meta name="theme-color" content="#FFF0E5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Pinyon+Script&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/mascot-sm.jpg" imagesrcset="img/mascot-sm.jpg 472w, img/mascot.jpg 944w" imagesizes="(max-width: 860px) 90vw, 520px">
+<style>
+:root{
+  --cream:#FFF0E5; --cream2:#FBE4D3; --ink:#141012; --ink2:#3B3236; --red:#C8102E; --red2:#9E0B23;
+  --pink:#FF4F9A; --gold:#D9A93B; --gold2:#F5D78A; --white:#fff;
+  --serif:"Playfair Display", Georgia, serif; --script:"Pinyon Script", cursive; --sans:"DM Sans", system-ui, -apple-system, sans-serif;
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.kick{font:700 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+h1,h2,h3{font-family:var(--serif);font-weight:900;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(34px,5vw,58px)}
+.script{font-family:var(--script);font-weight:400;letter-spacing:0}
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font:700 16px/1 var(--sans);padding:18px 26px;border-radius:999px;text-decoration:none;transition:transform .15s ease, box-shadow .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 0 -2px var(--red2), 0 18px 30px -12px rgba(200,16,46,.6)}
+.btn-red:active{transform:translateY(4px);box-shadow:0 4px 0 -2px var(--red2)}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn-gold{background:var(--gold2);color:var(--ink)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,240,229,.92);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid rgba(20,16,18,.08)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:baseline;gap:6px;text-decoration:none;white-space:nowrap}
+.logo .script{font-size:34px;color:var(--red);line-height:1}
+.logo b{font:900 13px/1 var(--serif);letter-spacing:.28em;text-transform:uppercase}
+.nav ul{display:flex;gap:26px;list-style:none;font-weight:500;font-size:15px}
+.nav ul a{text-decoration:none}
+.nav ul a:hover{color:var(--red)}
+.nav .btn{padding:12px 18px;font-size:14px}
+@media (max-width:860px){.nav ul{display:none}}
+@media (max-width:420px){.nav .btn{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;padding-top:40px;padding-bottom:30px}
+.hero h1{font-size:clamp(46px,7.2vw,92px);margin:18px 0 20px}
+.hero h1 em{font-style:italic;color:var(--red);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.14em;background:var(--gold2);z-index:-1;border-radius:4px}
+.hero p.lede{font-size:clamp(18px,1.6vw,21px);max-width:34em;color:var(--ink2)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 18px}
+.nojoke{font-size:14px;color:var(--ink2);display:flex;gap:18px;flex-wrap:wrap}
+.nojoke span::before{content:"✕ ";color:var(--red);font-weight:700}
+.art{position:relative;justify-self:center;max-width:520px;width:100%}
+.art img{width:100%;height:auto;aspect-ratio:944/1088;border-radius:0 0 260px 260px / 0 0 120px 120px}
+.bubble{position:absolute;background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:12px 16px;font:700 italic 19px/1.2 var(--serif);box-shadow:5px 5px 0 var(--ink);max-width:220px}
+.bubble::after{content:"";position:absolute;width:18px;height:18px;background:#fff;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg)}
+.b1{top:4%;left:-40px;transform:rotate(-5deg)}
+.b1::after{right:22px;bottom:-11px}
+.seal{position:absolute;left:-30px;bottom:8%;width:132px;height:132px;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.seal,.tick-in{animation:none!important}}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:24px}
+  .art{max-width:420px;order:-1}
+  .b1{left:0;top:2%;font-size:16px;max-width:170px}
+  .seal{width:96px;height:96px;left:auto;right:0;bottom:4%}
+}
+
+/* ticker */
+.ticker{background:var(--ink);color:var(--gold2);overflow:hidden;white-space:nowrap;padding:16px 0;border-block:3px solid var(--gold)}
+.tick-in{display:inline-block;animation:tick 38s linear infinite;font:900 italic 24px/1 var(--serif);letter-spacing:.06em}
+.tick-in span{margin:0 26px}
+.tick-in i{color:var(--pink);font-style:normal}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+.center{text-align:center}
+.center .lede2{max-width:40em;margin:16px auto 0;color:var(--ink2);font-size:19px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+.step{background:#fff;border:2.5px solid var(--ink);border-radius:var(--r);padding:30px 26px 28px;box-shadow:8px 8px 0 var(--ink);position:relative}
+.step:nth-child(2){box-shadow:8px 8px 0 var(--red)}
+.step:nth-child(3){box-shadow:8px 8px 0 var(--gold)}
+.step .n{font:900 italic 72px/1 var(--serif);color:var(--red);opacity:.95}
+.step h3{font-size:28px;margin:8px 0 10px}
+.step p{color:var(--ink2)}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+
+/* upload */
+.upload{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.upload::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 85% 0%, rgba(200,16,46,.45), transparent 70%),radial-gradient(500px 300px at 0% 100%, rgba(217,169,59,.25), transparent 70%)}
+.upload .wrap{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center}
+.upload .kick{color:var(--gold2)}
+.upload h2{margin:14px 0 16px}
+.upload h2 .script{color:var(--gold2);font-size:1.15em}
+.upload p{color:#E9DCD3}
+.upload ul{list-style:none;margin:22px 0 0;display:grid;gap:10px}
+.upload li::before{content:"✦ ";color:var(--gold)}
+.drop{background:var(--cream);color:var(--ink);border-radius:28px;padding:22px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.zone{display:block;border:3px dashed var(--red);border-radius:20px;padding:34px 20px;text-align:center;cursor:pointer;background:#fff;transition:background .15s, transform .15s}
+.zone:hover,.zone.over{background:#FFE3EC;transform:scale(1.01)}
+.zone .big{font:900 28px/1.1 var(--serif);margin:10px 0 6px}
+.zone small{color:var(--ink2)}
+.zone svg{margin:0 auto}
+.zone input{position:absolute;width:1px;height:1px;opacity:0}
+.thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px;margin-top:16px}
+.thumbs img{aspect-ratio:1;object-fit:cover;border-radius:10px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.status{font:700 italic 20px/1.3 var(--serif);margin:16px 4px 4px;min-height:1.3em;color:var(--red)}
+.sendrow{display:none;flex-wrap:wrap;gap:10px;margin-top:12px}
+.sendrow.on{display:flex}
+.sendrow .btn{padding:15px 20px;font-size:15px}
+.upload .drop .fine{font-size:13px;color:var(--ink2);margin-top:12px}
+@media (max-width:860px){.upload .wrap{grid-template-columns:1fr}}
+
+/* house calls */
+.house{background:var(--red);color:#fff;position:relative;overflow:hidden}
+.house .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.house .kick{color:var(--gold2)}
+.house h2{margin:14px 0 18px}
+.house p{color:#FFE6EA;font-size:19px;max-width:30em}
+.house .btn-gold{margin-top:28px}
+.map{position:relative;background:var(--cream);border-radius:28px;border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);aspect-ratio:1/1;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .face{position:absolute;width:44%;height:auto;left:28%;top:28%;border-radius:50%;border:4px solid var(--ink);aspect-ratio:1;object-fit:cover;object-position:50% 22%;background:var(--cream);box-shadow:6px 6px 0 var(--red)}
+.pin{position:absolute;background:var(--ink);color:#fff;font:700 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-radius:999px}
+.pin.lv{right:7%;top:12%}
+.pin.sd{left:6%;bottom:12%}
+@media (max-width:860px){.house .wrap{grid-template-columns:1fr}}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.why div{border-top:4px solid var(--ink);padding-top:18px}
+.why .ic{font-size:34px}
+.why h3{font-size:26px;margin:10px 0 8px}
+.why p{color:var(--ink2)}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+
+/* closet gallery */
+.closet{background:#000;color:#fff}
+.closet .kick{color:var(--pink)}
+.closet h2 em{color:var(--gold2)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:dense;gap:4px;margin-top:44px}
+.grid figure{position:relative;overflow:hidden;background:#000;aspect-ratio:1}
+.grid img{object-fit:cover;width:100%;height:100%;transition:transform .5s ease}
+.grid figure:hover img{transform:scale(1.07)}
+.grid figcaption{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.94);color:var(--ink);font:700 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:8px 10px;border-radius:999px}
+.grid .wide{grid-column:span 2;grid-row:span 2}
+@media (max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+.closet .row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:40px}
+.closet .btn-line{color:#fff;box-shadow:inset 0 0 0 2px #fff}
+
+/* mom */
+.mom .card{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:#fff;border:2.5px solid var(--ink);border-radius:30px;padding:40px;box-shadow:12px 12px 0 var(--pink)}
+.mom .card .big{font:900 italic clamp(30px,4vw,46px)/1.05 var(--serif)}
+.mom .card p{color:var(--ink2);margin-top:14px;font-size:18px}
+.mom .emoji{font-size:84px;line-height:1}
+@media (max-width:700px){.mom .card{grid-template-columns:1fr;padding:28px}}
+
+/* wants */
+.wants{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px}
+.wants span{background:#fff;border:2px solid var(--ink);border-radius:999px;padding:12px 18px;font-weight:700}
+.wants span:nth-child(3n){background:var(--gold2)}
+.wants span:nth-child(4n){background:#FFD6E6}
+
+/* faq */
+.faq{max-width:820px;margin:44px auto 0}
+.faq details{border-bottom:2px solid var(--ink);padding:20px 4px}
+.faq summary{font:700 22px/1.3 var(--serif);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.faq summary::after{content:"+";color:var(--red);font-size:30px;line-height:.8}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin-top:12px;color:var(--ink2)}
+
+/* final */
+.final{background:var(--pink);background:linear-gradient(135deg,#FF4F9A 0%,#C8102E 100%);color:#fff;text-align:center}
+.final h2{font-size:clamp(40px,6.4vw,80px)}
+.final p{font-size:20px;margin:16px auto 30px;max-width:32em;color:#FFEAF2}
+.final .btn{background:#fff;color:var(--red);box-shadow:0 10px 0 -2px var(--ink)}
+
+footer{background:var(--ink);color:#CBBFC5;padding:50px 0 110px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+footer .logo .script{color:var(--gold2)}
+footer .logo b{color:#fff}
+footer a{color:#fff}
+footer .by{font-size:13px;opacity:.7}
+
+/* sticky mobile CTA */
+.stick{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:none}
+.stick .btn{width:100%;justify-content:center;font-size:17px}
+@media (max-width:860px){.stick{display:block}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Calais's Consignment","serviceType":"Luxury consignment: designer handbags, shoes and clothing","areaServed":[{"@type":"City","name":"Las Vegas"},{"@type":"City","name":"San Diego"}],"provider":{"@type":"Person","name":"Calais Boyd"}}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Calais's Consignment home"><span class="script">Calais's</span><b>Consignment</b></a>
+    <ul>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#house">House calls</a></li>
+      <li><a href="#closet">The closet</a></li>
+      <li><a href="#faq">Questions</a></li>
+    </ul>
+    <a class="btn btn-red" href="#send">Send your closet</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="kick">Luxury consignment &middot; Las Vegas &middot; San Diego</div>
+      <h1>Your closet is sitting on a <em>small fortune.</em></h1>
+      <p class="lede">Too busy to haul your designer pieces to a consignment store? Don't. Snap a few photos of the shoes, bags and clothes you're done with and send them to Calais. She takes it from there.</p>
+      <div class="ctas">
+        <a class="btn btn-red" href="#send">📸 Upload your closet</a>
+        <a class="btn btn-line" href="#house">✈️ Have Calais come to you</a>
+      </div>
+      <div class="nojoke"><span>No forms</span><span>No questionnaires</span><span>No hauling bags across town</span></div>
+    </div>
+    <div class="art">
+      <picture><img src="img/mascot-sm.jpg" srcset="img/mascot-sm.jpg 472w, img/mascot.jpg 944w" sizes="(max-width: 860px) 90vw, 520px" width="944" height="1088" alt="Illustrated Calais with big blonde waves, a black blazer and a red quilted bag, surrounded by designer heels and purses" fetchpriority="high"></picture>
+      <div class="bubble b1">Show me the closet, darling.</div>
+      <svg class="seal" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="c" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0"/></defs>
+        <circle cx="100" cy="100" r="98" fill="#C8102E"/>
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#F5D78A" stroke-width="2" stroke-dasharray="3 5"/>
+        <text font-family="DM Sans, sans-serif" font-weight="700" font-size="17" letter-spacing="4.2" fill="#fff"><textPath href="#c">TOP DOLLAR &#x2726; ZERO HASSLE &#x2726; </textPath></text>
+        <text x="100" y="116" text-anchor="middle" font-family="Playfair Display, serif" font-style="italic" font-weight="900" font-size="46" fill="#F5D78A">$$$</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-label="Designers Calais sells">
+  <div class="tick-in">
+    <span>Chanel</span><i>✦</i><span>Gucci</span><i>✦</i><span>Saint Laurent</span><i>✦</i><span>Dolce &amp; Gabbana</span><i>✦</i><span>Christian Louboutin</span><i>✦</i><span>Jimmy Choo</span><i>✦</i><span>Valentino</span><i>✦</i><span>Alexander McQueen</span><i>✦</i>
+    <span>Chanel</span><i>✦</i><span>Gucci</span><i>✦</i><span>Saint Laurent</span><i>✦</i><span>Dolce &amp; Gabbana</span><i>✦</i><span>Christian Louboutin</span><i>✦</i><span>Jimmy Choo</span><i>✦</i><span>Valentino</span><i>✦</i><span>Alexander McQueen</span><i>✦</i>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap center">
+    <div class="kick">How it works</div>
+    <h2>Too busy to consign? <span class="script" style="color:var(--red);font-size:1.15em">Perfect.</span></h2>
+    <p class="lede2">This was built for the woman with a walk-in full of beautiful things and zero time to deal with them.</p>
+    <div class="steps" style="text-align:left">
+      <div class="step"><div class="n">1</div><h3>Snap it</h3><p>Take photos of what you're done with. On the bed, on the floor, still in the box. Messy is fine. Calais just needs to see what she's working with.</p></div>
+      <div class="step"><div class="n">2</div><h3>Send it</h3><p>Upload the photos right here, or text them. That's the whole sign-up. No forms, no questionnaire, no appointment at a store.</p></div>
+      <div class="step"><div class="n">3</div><h3>Get paid</h3><p>Calais photographs, prices, lists and sells your pieces where luxury buyers actually shop. You get your closet back and money in your pocket.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="upload" id="send">
+  <div class="wrap">
+    <div>
+      <div class="kick">The only step on your list</div>
+      <h2>Drop your closet <span class="script">right here.</span></h2>
+      <p>Pick as many photos as you like, straight from your camera roll. You'll see them land below, then send them to Calais in one tap.</p>
+      <ul>
+        <li>Whole-closet shots are great. So are close-ups.</li>
+        <li>Got the box, dust bag or receipt? Snap those too.</li>
+        <li>Not sure it's worth anything? Send it anyway.</li>
+      </ul>
+    </div>
+    <div class="drop">
+      <label class="zone" id="zone">
+        <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="14" width="52" height="40" rx="10" fill="#C8102E"/><rect x="22" y="8" width="20" height="10" rx="4" fill="#C8102E"/><circle cx="32" cy="34" r="12" fill="#fff"/><circle cx="32" cy="34" r="7" fill="#141012"/><circle cx="48" cy="22" r="3" fill="#F5D78A"/></svg>
+        <div class="big">Tap to add photos</div>
+        <small>or drag them here from your computer</small>
+        <input id="pics" type="file" accept="image/*" multiple>
+      </label>
+      <div class="thumbs" id="thumbs" aria-live="polite"></div>
+      <div class="status" id="status"></div>
+      <div class="sendrow" id="sendrow">
+        <button class="btn btn-red" id="share" type="button">💌 Send to Calais</button>
+        <a class="btn btn-line" id="dm" href="https://www.instagram.com/ohxtian/" target="_blank" rel="noopener">DM on Instagram</a>
+      </div>
+      <p class="fine" id="fine">Your photos stay on your phone until you choose where to send them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="house" id="house">
+  <div class="wrap">
+    <div>
+      <div class="kick">House calls</div>
+      <h2>Calais comes to you.</h2>
+      <p>Got a whole closet, or just don't want to lift a finger? Calais flies out to your home, photographs everything right there, and takes it from there. She's mostly in Las Vegas and San Diego, so ask about anywhere else.</p>
+      <a class="btn btn-gold" href="#send">Book a house call</a>
+    </div>
+    <div class="map" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <defs><pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="#E9CDB8"/></pattern></defs>
+        <rect width="400" height="400" fill="url(#dots)"/>
+        <path d="M70 330C120 300 110 230 170 200S300 140 330 70" fill="none" stroke="#C8102E" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>
+        <circle cx="70" cy="330" r="11" fill="#141012"/><circle cx="70" cy="330" r="5" fill="#F5D78A"/>
+        <circle cx="330" cy="70" r="11" fill="#141012"/><circle cx="330" cy="70" r="5" fill="#F5D78A"/>
+        <g transform="translate(286 104) rotate(-38)"><path d="M-22 0h44l8 4-8 4h-44z" fill="#141012"/><path d="M-4 0l-14-20h8l20 20zM-4 8l-14 20h8l20-20zM-22 0l-8-10h6l8 10zM-22 8l-8 10h6l8-10z" fill="#141012"/></g>
+      </svg>
+      <img class="face" src="img/mascot-face-sm.jpg" width="472" height="544" alt="" loading="lazy">
+      <span class="pin lv">Las Vegas</span>
+      <span class="pin sd">San Diego</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <div class="kick">Why Calais</div>
+    <h2>She knows what it's worth.</h2>
+    <div class="why" style="text-align:left">
+      <div><div class="ic">💎</div><h3>Grew up around luxury</h3><p>Calais has been around designer pieces her whole life. She knows the real thing, how it should feel, and what buyers look for before they pay.</p></div>
+      <div><div class="ic">💸</div><h3>Gets top dollar</h3><p>Pricing is everything. Calais knows how to list a piece so it sells for what it's worth, not what a store will pay you for it in cash today.</p></div>
+      <div><div class="ic">👠</div><h3>Shoes and bags are her thing</h3><p>Designer heels, boots and handbags are her specialty: the photos, the details and the questions buyers ask before they say yes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="closet" id="closet">
+  <div class="wrap center">
+    <div class="kick">From Calais's closet</div>
+    <h2>Boutique photos. <em>Every piece.</em></h2>
+    <p class="lede2" style="color:#CFC3C9">Real pieces Calais has photographed and listed. Yours get the same treatment.</p>
+    <div class="grid">
+      <figure class="wide"><img src="img/chanel-red.jpg" width="720" height="720" alt="Red quilted Chanel handbag with gold CC" loading="lazy"><figcaption>Chanel</figcaption></figure>
+      <figure><img src="img/gucci-loafers.jpg" width="720" height="720" alt="Red velvet Gucci loafers with horsebit" loading="lazy"><figcaption>Gucci</figcaption></figure>
+      <figure><img src="img/ysl-loulou.jpg" width="720" height="720" alt="Quilted Saint Laurent Loulou bag with gold chain" loading="lazy"><figcaption>Saint Laurent</figcaption></figure>
+      <figure><img src="img/dg-sandals.jpg" width="720" height="720" alt="Dolce and Gabbana polka-dot sandals with red flowers" loading="lazy"><figcaption>Dolce &amp; Gabbana</figcaption></figure>
+      <figure><img src="img/chanel-flap.jpg" width="720" height="720" alt="Cream quilted Chanel flap bag" loading="lazy"><figcaption>Chanel</figcaption></figure>
+      <figure><img src="img/gucci-boots.jpg" width="720" height="720" alt="Gucci GG canvas lace-up boots" loading="lazy"><figcaption>Gucci</figcaption></figure>
+      <figure><img src="img/jewel-mules.jpg" width="720" height="720" alt="Crystal embellished block-heel mules" loading="lazy"><figcaption>Heels</figcaption></figure>
+      <figure class="wide"><img src="img/dg-sicily.jpg" width="720" height="720" alt="Dolce and Gabbana Sicily bag covered in red flowers" loading="lazy"><figcaption>Dolce &amp; Gabbana</figcaption></figure>
+      <figure><img src="img/chanel-espadrilles.jpg" width="720" height="720" alt="Chanel cap-toe espadrilles" loading="lazy"><figcaption>Chanel</figcaption></figure>
+      <figure><img src="img/cowboy-boots.jpg" width="720" height="720" alt="Red and white statement cowboy boots" loading="lazy"><figcaption>Boots</figcaption></figure>
+      <figure><img src="img/sneakers.jpg" width="720" height="720" alt="Crystal-covered designer sneakers" loading="lazy"><figcaption>Sneakers</figcaption></figure>
+      <figure><img src="img/dg-espadrilles.jpg" width="720" height="720" alt="Pink Dolce and Gabbana espadrilles" loading="lazy"><figcaption>Dolce &amp; Gabbana</figcaption></figure>
+      <figure><img src="img/embellished-bag.jpg" width="720" height="720" alt="Cream leather bag with embroidered flowers" loading="lazy"><figcaption>Handbags</figcaption></figure>
+      <figure><img src="img/shearling-boots.jpg" width="720" height="720" alt="White shearling boots" loading="lazy"><figcaption>Boots</figcaption></figure>
+    </div>
+    <div class="row">
+      <a class="btn btn-red" href="#send">Get your pieces photographed</a>
+      <a class="btn btn-line" href="https://poshmark.com/closet/cal2000" target="_blank" rel="noopener">Shop her Poshmark closet</a>
+    </div>
+  </div>
+</section>
+
+<section class="mom">
+  <div class="wrap">
+    <div class="card">
+      <div class="emoji" aria-hidden="true">👜</div>
+      <div>
+        <div class="kick">Who this is for</div>
+        <div class="big" style="margin-top:12px">Built for women like Calais's mom.</div>
+        <p>A closet full of gorgeous things, some still with tags. Every intention of selling them "someday." No time, and no interest in standing at a counter while someone offers her a fraction of what she paid. Now she sends a few photos and Calais handles the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap center">
+    <div class="kick">What Calais loves to see</div>
+    <h2>If it's designer, send it.</h2>
+    <div class="wants">
+      <span>Handbags</span><span>Heels</span><span>Boots</span><span>Designer sneakers</span><span>Flats &amp; loafers</span><span>Belts</span><span>Dresses</span><span>Jackets &amp; coats</span><span>Wallets</span><span>Boxes, dust bags &amp; receipts</span>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:40px">
+  <div class="wrap">
+    <div class="center"><div class="kick">Questions</div><h2>The easy answers.</h2></div>
+    <div class="faq">
+      <details open><summary>Do I have to fill anything out?</summary><p>No. No forms and no questionnaire. Send photos of what you want to sell and Calais will take it from there.</p></details>
+      <details><summary>Do my photos need to be good?</summary><p>Not at all. Phone pictures on the bed or the floor are perfect. Calais takes the real listing photos herself.</p></details>
+      <details><summary>Where does Calais work?</summary><p>Photos can come from anywhere. For house calls, she's mostly in the Las Vegas and San Diego areas. Ask about anywhere else.</p></details>
+      <details><summary>Do I need the box or receipt?</summary><p>No, but if you have them, include them. Boxes, dust bags and receipts help a piece sell for more.</p></details>
+      <details><summary>What if I'm not sure something is worth selling?</summary><p>Send it anyway. That's what Calais is for.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Clean out the closet.<br><span class="script" style="font-size:1.1em">Keep the cash.</span></h2>
+    <p>One photo is enough to get started.</p>
+    <a class="btn" href="#send">📸 Send Calais your closet</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="script">Calais's</span><b>Consignment</b></a>
+    <div>Las Vegas &middot; San Diego &middot; <a href="https://www.instagram.com/ohxtian/" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://poshmark.com/closet/cal2000" target="_blank" rel="noopener">Poshmark</a></div>
+    <div class="by">Site by <a href="https://handleditforyou.com">Handled</a></div>
+  </div>
+</footer>
+
+<div class="stick"><a class="btn btn-red" href="#send">📸 Upload your closet</a></div>
+
+<script>
+(function(){
+  // Where "Send to Calais" goes. Fill these in once Calais picks what to publish.
+  var CALAIS = {phone:"", email:"", uploadUrl:""};
+  var input=document.getElementById('pics'), zone=document.getElementById('zone'), thumbs=document.getElementById('thumbs'),
+      status=document.getElementById('status'), row=document.getElementById('sendrow'), share=document.getElementById('share'), fine=document.getElementById('fine');
+  var files=[];
+  var lines=["Ooh. Calais is going to love this.","Now we're talking.","That's a closet.","Okay, darling. Say less."];
+  function add(list){
+    for (var i=0;i<list.length;i++){
+      var f=list[i]; if(!/^image\//.test(f.type)) continue; files.push(f);
+      var img=new Image(); img.alt=""; img.src=URL.createObjectURL(f); thumbs.appendChild(img);
+    }
+    if(!files.length) return;
+    status.textContent=files.length+(files.length==1?" piece. ":" pieces. ")+lines[Math.min(lines.length-1,Math.floor(files.length/4))];
+    row.classList.add('on');
+  }
+  input.addEventListener('change',function(){add(input.files); input.value="";});
+  ['dragenter','dragover'].forEach(function(e){zone.addEventListener(e,function(ev){ev.preventDefault();zone.classList.add('over');});});
+  ['dragleave','drop'].forEach(function(e){zone.addEventListener(e,function(ev){ev.preventDefault();zone.classList.remove('over');});});
+  zone.addEventListener('drop',function(ev){add(ev.dataTransfer.files);});
+  share.addEventListener('click',async function(){
+    var text="Hi Calais! Here's my closet. What do you think?";
+    if(navigator.canShare && navigator.canShare({files:files})){
+      try{ await navigator.share({files:files,text:text}); status.textContent="Sent. Calais will be in touch. 💋"; return; }catch(e){ if(e.name==="AbortError") return; }
+    }
+    if(CALAIS.uploadUrl){ window.open(CALAIS.uploadUrl,"_blank","noopener"); return; }
+    if(CALAIS.email){ location.href="mailto:"+CALAIS.email+"?subject="+encodeURIComponent("My closet")+"&body="+encodeURIComponent(text+"\n\n(Attach your photos to this email.)"); return; }
+    fine.textContent="On a computer? Send these from your phone in one tap, or DM them to Calais on Instagram.";
+  });
+})();
+</script>
+</body>
+</html>
