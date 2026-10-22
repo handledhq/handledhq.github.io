@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /demo/
+Disallow: /check/
 Sitemap: https://handleditforyou.com/sitemap.xml
 Sitemap: https://handleditforyou.com/pros/sitemap.xml
