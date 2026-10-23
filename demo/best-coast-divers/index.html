@@ -20,7 +20,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Best Coast Divers","description":"Hull cleaning and underwater boat service in San Diego since 2015.","telephone":"+1-619-916-6767","email":"bestcoastdivers@gmail.com","foundingDate":"2015","founder":{"@type":"Person","name":"Chad Miller","jobTitle":"Owner / Dive Supervisor"},"areaServed":{"@type":"AdministrativeArea","name":"San Diego County, CA"},"logo":"https://handleditforyou.com/demo/best-coast-divers/img/logo.png","image":"https://handleditforyou.com/demo/best-coast-divers/img/hero.jpg","sameAs":["https://www.instagram.com/best.coast.divers/","https://www.facebook.com/bestcoastdivers/"],"slogan":"Below the surface. Above the rest."}
 </script>
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -99,9 +99,9 @@
       <div class="quote-mini">"They do everything they can to inform you of what your bottom looks like. Videos helped a lot."<span>Travis B. · Facebook review</span></div>
     </div>
     <div class="phones">
-      <figure><img src="img/uw-growth.jpg" alt="Underwater footage of growth on a hull" loading="lazy"></figure>
-      <figure><img src="img/uw-diver.jpg" alt="Underwater footage of a diver working under a boat" loading="lazy"></figure>
-      <figure><img src="img/uw-prop2.jpg" alt="Underwater footage of a propeller" loading="lazy"></figure>
+      <figure><video muted loop playsinline webkit-playsinline autoplay disablepictureinpicture disableremoteplayback preload="none" poster="media/ph-growth.jpg" data-src="media/ph-growth.mp4" aria-label="Underwater footage: weed growth on the running gear"></video></figure>
+      <figure><video muted loop playsinline webkit-playsinline autoplay disablepictureinpicture disableremoteplayback preload="none" poster="media/ph-prop.jpg" data-src="media/ph-prop.mp4" aria-label="Underwater footage: a clean propeller"></video></figure>
+      <figure><video muted loop playsinline webkit-playsinline autoplay disablepictureinpicture disableremoteplayback preload="none" poster="media/ph-drive.jpg" data-src="media/ph-drive.mp4" aria-label="Underwater footage: inspecting a sterndrive"></video></figure>
     </div>
   </div>
 </section>
@@ -287,12 +287,19 @@
   var tall=matchMedia('(max-width:760px)').matches;
   // if the phone won't play video (iPhone Low Power Mode), swap in a looping animated image of the same clip
   function fallback(){ if(!tall||v.classList.contains('on')||document.querySelector('.hero img.anim'))return;
-    var i=new Image(); i.className='bgm anim'; i.alt=''; i.onload=function(){v.parentNode.insertBefore(i,v);requestAnimationFrame(function(){i.classList.add('on')});}; i.src='media/hero-tall.webp?v=3'; }
+    var i=new Image(); i.className='bgm anim'; i.alt=''; i.onload=function(){v.parentNode.insertBefore(i,v);setTimeout(function(){i.classList.add('on')},50);}; i.src='media/hero-tall.webp?v=3'; }
   function go(){var p=v.play(); if(p&&p.catch)p.catch(fallback);}
   go(); setTimeout(fallback,2500);
   // iPhone Low Power Mode blocks autoplay until the first touch or scroll
   ['touchstart','pointerdown','scroll'].forEach(function(t){window.addEventListener(t,function h(){if(v.paused)go();window.removeEventListener(t,h);},{passive:true});});
   document.addEventListener('visibilitychange',function(){if(!document.hidden&&v.paused)go();});
+})();
+(function(){
+  var vs=document.querySelectorAll('.phones video[data-src]'); if(!vs.length||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  vs.forEach(function(v){v.muted=true;v.defaultMuted=true;v.playsInline=true;});
+  function go(v){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){vs.forEach(function(v){if(!v.src){v.src=v.dataset.src+'?v=3';go(v);}});o.disconnect();}})},{rootMargin:'300px'}).observe(document.querySelector('.phones'));
+  ['touchstart','scroll'].forEach(function(t){window.addEventListener(t,function(){vs.forEach(function(v){if(v.src&&v.paused)go(v);});},{passive:true});});
 })();
 document.getElementById('yr').textContent=new Date().getFullYear();
 document.getElementById('qf').addEventListener('submit',function(ev){
