@@ -45,6 +45,7 @@ h2 em{font-style:italic;color:var(--gold)}
 .hero .bgm{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:-2}
 .hero video.bgm{opacity:0;transition:opacity .9s ease}
 .hero video.bgm.on{opacity:1}
+.hero img.anim{opacity:0;transition:opacity .9s ease}.hero img.anim.on{opacity:1}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,16,25,.15) 0%,rgba(7,16,25,.35) 40%,rgba(7,16,25,.94) 88%),linear-gradient(90deg,rgba(7,16,25,.75) 0%,rgba(7,16,25,0) 65%)}
 .hero .wrap{width:100%;padding-top:120px;padding-bottom:110px}
 @media (min-width:901px){
