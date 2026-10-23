@@ -195,7 +195,7 @@ footer ul{list-style:none}
 footer li{margin:8px 0}
 footer a{text-decoration:none}
 footer a:hover{color:var(--gold)}
-footer .by{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13.5px}
+footer .by{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13.5px}
 @media (max-width:800px){footer .wrap{grid-template-columns:1fr}}
 
 /* mobile call bar */
@@ -279,3 +279,14 @@ footer .wrap{grid-template-columns:1.3fr 1fr 1fr 1fr}
 
 .reviews h2 em{color:#9A6A00!important}
 .tri.ink{color:#9A6A00}
+
+/* Handled credit badge (same as Beauty Karma) */
+.hbadge{display:inline-flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:12px 18px;text-decoration:none;transition:border-color .2s,background .2s}
+.hbadge:hover{border-color:#E10600;background:rgba(255,255,255,.04)}
+.hb-s{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#9fb0c3}
+.hb-logo{font:800 24px/1 'Bricolage Grotesque',Arial,sans-serif;letter-spacing:-.5px;color:#fff;display:inline-flex;align-items:flex-end}
+.hb-logo i{width:7px;height:7px;border-radius:50%;background:#E10600;margin:0 0 4px 2px}
+.hb-cta{font-size:13px;color:#cfd9e4;border-left:1px solid rgba(255,255,255,.16);padding-left:14px}.hbadge:hover .hb-cta{color:#fff}
+footer .by a.hbadge:hover{color:inherit}
+.hb-s,.hb-cta{white-space:nowrap}
+@media (max-width:480px){.hbadge{flex-wrap:wrap;row-gap:10px}.hb-cta{flex-basis:100%;border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.16);padding-top:10px}}
