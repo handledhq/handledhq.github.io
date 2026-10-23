@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600&family=Bricolage+Grotesque:wght@800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../style.css?v=3">
 </head>
 <body>
 
@@ -127,8 +127,11 @@ document.getElementById('apply').addEventListener('submit',function(ev){
 </div>
 <script>
 document.querySelectorAll('video[data-src]').forEach(function(v){
-  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches; if(rm)return;
-  new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){v.src=v.dataset.src;var p=v.play();if(p&&p.catch)p.catch(function(){});o.disconnect();}})},{rootMargin:'200px'}).observe(v);
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  v.muted=true; v.defaultMuted=true; v.playsInline=true; v.setAttribute('muted',''); v.setAttribute('playsinline','');
+  function go(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){v.src=v.dataset.src+'?v=3';go();o.disconnect();}})},{rootMargin:'200px'}).observe(v);
+  ['touchstart','pointerdown','scroll'].forEach(function(t){window.addEventListener(t,function h(){if(v.src&&v.paused)go();window.removeEventListener(t,h);},{passive:true});});
 });
 </script>
 </body>

@@ -20,7 +20,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Best Coast Divers","description":"Hull cleaning and underwater boat service in San Diego since 2015.","telephone":"+1-619-916-6767","email":"bestcoastdivers@gmail.com","foundingDate":"2015","founder":{"@type":"Person","name":"Chad Miller","jobTitle":"Owner / Dive Supervisor"},"areaServed":{"@type":"AdministrativeArea","name":"San Diego County, CA"},"logo":"https://handleditforyou.com/demo/best-coast-divers/img/logo.png","image":"https://handleditforyou.com/demo/best-coast-divers/img/hero.jpg","sameAs":["https://www.instagram.com/best.coast.divers/","https://www.facebook.com/bestcoastdivers/"],"slogan":"Below the surface. Above the rest."}
 </script>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
 
 <header class="hero" id="top">
   <picture><source media="(max-width:760px)" srcset="media/hero-tall.jpg"><img class="bgm" src="media/hero-wide.jpg" alt="A Best Coast Divers diver working under a boat covered in marine growth" fetchpriority="high"></picture>
-  <video class="bgm" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+  <video class="bgm" autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"></video>
   <span class="real"><i></i>Real footage · Best Coast Divers at work</span>
   <svg class="swoosh" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 C 380 8, 980 6, 1440 58 L1440 90 L0 90Z" fill="var(--deep)"/><path d="M0 70 C 380 8, 980 6, 1440 58" fill="none" stroke="var(--gold)" stroke-width="3"/></svg>
   <div class="wrap">
@@ -278,13 +278,17 @@
 <script>
 (function(){
   var v=document.querySelector('.hero video'); if(!v)return;
-  var c=navigator.connection||{}, rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(rm||c.saveData||/2g/.test(c.effectiveType||''))return;
-  window.addEventListener('load',function(){
-    v.src=matchMedia('(max-width:760px)').matches?'media/hero-tall.mp4':'media/hero-wide.mp4';
-    v.addEventListener('playing',function(){v.classList.add('on')},{once:true});
-    var p=v.play(); if(p&&p.catch)p.catch(function(){});
-  });
+  var c=navigator.connection||{};
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||c.saveData)return;
+  v.muted=true; v.defaultMuted=true; v.playsInline=true;
+  v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline','');
+  v.src=(matchMedia('(max-width:760px)').matches?'media/hero-tall.mp4':'media/hero-wide.mp4')+'?v=3';
+  v.addEventListener('playing',function(){v.classList.add('on')});
+  function go(){var p=v.play(); if(p&&p.catch)p.catch(function(){});}
+  go();
+  // iPhone Low Power Mode blocks autoplay until the first touch or scroll
+  ['touchstart','pointerdown','scroll'].forEach(function(t){window.addEventListener(t,function h(){if(v.paused)go();window.removeEventListener(t,h);},{passive:true});});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden&&v.paused)go();});
 })();
 document.getElementById('yr').textContent=new Date().getFullYear();
 document.getElementById('qf').addEventListener('submit',function(ev){
