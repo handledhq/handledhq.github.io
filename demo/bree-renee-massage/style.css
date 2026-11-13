@@ -62,6 +62,7 @@ ul.good li:before{content:"✦";position:absolute;left:0;color:var(--bronze)}
 .pagehead .split img{aspect-ratio:1/1}
 .visit{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px}
 .visit h3{font-size:24px}.visit p{margin:0}
+.findit{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:44px auto 0;max-width:900px}.findit figure{margin:0}.findit img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;display:block}.findit figcaption{font-size:14px;margin-top:8px;opacity:.8}
 .band{background:var(--sage);color:#fff;padding:80px 0;text-align:center}.band h2 i{color:#fff2dc}
 .band .cta{justify-content:center}
 footer{background:var(--ink);color:#d9d2c6;padding:70px 0 30px;font-size:15px}
@@ -81,7 +82,7 @@ footer .logo b{color:#fff}
  .nav{display:none;position:absolute;top:78px;left:0;right:0;background:var(--cream);flex-direction:column;gap:0;border-bottom:1px solid var(--line)}
  .nav.open{display:flex}.nav a{padding:16px 24px;border-top:1px solid var(--line)}
  .menu{display:block}.top .btn{display:none}
- .split,.three,.quotes,.trio,.steps,.visit{grid-template-columns:1fr}.split{gap:40px}
+ .split,.three,.quotes,.trio,.steps,.visit{grid-template-columns:1fr}.findit{gap:8px}.findit figcaption{font-size:12px}.split{gap:40px}
  .sec{padding:76px 0}.hero{min-height:82vh}
  footer .wrap{grid-template-columns:1fr 1fr}footer .wrap>div:first-child{grid-column:1/-1}
  .mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;bottom:0;left:0;right:0;z-index:30}
