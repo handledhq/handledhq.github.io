@@ -89,7 +89,7 @@ footer .logo b{color:#fff}
  .nav.open{display:flex}.nav a{padding:16px 24px;border-top:1px solid var(--line)}
  .menu{display:block}.top .btn{display:none}
  .split,.three,.quotes,.trio,.steps,.visit{grid-template-columns:1fr}.findit{gap:8px}.findit figcaption{font-size:12px}.split{gap:40px}
- .sec{padding:76px 0}.hero{min-height:82vh}.hero img.bg{object-position:40% 50%}.proof .score{border-left:0;padding-left:0}.proof blockquote{font-size:20px}
+ .sec{padding:76px 0}.hero{min-height:82vh}.hero img.bg{object-position:40% 50%}.hero:after{background:linear-gradient(180deg,rgba(28,33,25,.62),rgba(28,33,25,.5) 45%,rgba(28,33,25,.72))}.proof .score{border-left:0;padding-left:0}.proof blockquote{font-size:20px}
  footer .wrap{grid-template-columns:1fr 1fr}footer .wrap>div:first-child{grid-column:1/-1}
  .mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;bottom:0;left:0;right:0;z-index:30}
  .mbar a{padding:16px;text-align:center;text-decoration:none;font-size:13px;letter-spacing:.16em;text-transform:uppercase;background:var(--ink);color:#fff}
