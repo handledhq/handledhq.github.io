@@ -21,7 +21,7 @@
 <div class="iq"><label>Signature<span class="req">*</span></label><canvas id="sig" class="sigbox" aria-label="Signature pad"></canvas>
 <div class="sigrow"><span>Sign with your finger or mouse.</span><button type="button" id="sigclear">Clear</button></div>
 <p class="err" id="sigerr" hidden style="color:#c0392b;font-size:14px">Please sign above.</p></div>
-<input type="hidden" name="_signature" id="sigdata"><input type="hidden" name="_order" id="order">
+<input type="hidden" name="_signature" id="sigdata"><input type="hidden" name="_policies" id="poltext"><input type="hidden" name="_order" id="order">
 <input name="_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
 <button class="btn send" type="submit">Submit</button>
 </form>
@@ -59,6 +59,7 @@ f.addEventListener('submit',function(ev){
   var se=document.getElementById('sigerr');se.hidden=drew;if(!drew)ok=false;
   if(!ok){ev.preventDefault();var first=f.querySelector('.err:not([hidden])');if(first)first.scrollIntoView({block:'center'});return}
   document.getElementById('sigdata').value=c.toDataURL('image/png');
+  document.getElementById('poltext').value=f.querySelector('.policy').innerText;
   var order=[];f.querySelectorAll('[name]').forEach(function(el){if(order.indexOf(el.name)<0&&el.name.charAt(0)!=='_')order.push(el.name)});
   document.getElementById('order').value=JSON.stringify(order);
   if(!f.getAttribute('action')){ev.preventDefault();alert('Preview only: this form is not connected yet.');return}
