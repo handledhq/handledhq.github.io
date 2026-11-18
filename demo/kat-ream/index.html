@@ -68,6 +68,16 @@ section{padding:90px 0;border-top:1px solid var(--line)}
 
 /* gallery */
 .gallery{columns:3 280px;column-gap:18px;margin-top:44px}
+.withwork{margin-top:80px}
+.withwork .head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.withwork .head p{color:var(--muted);margin:6px 0 0;max-width:520px}
+.withwork .hint{color:var(--muted);font-size:13px}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 14px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.strip figure{flex:0 0 280px;scroll-snap-align:start;cursor:zoom-in;margin:0}
+.strip img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.strip figcaption{font-size:14px;color:var(--muted);padding:8px 2px 0}
+@media(max-width:600px){.strip figure{flex-basis:78%}}
+.deadline{display:inline-block;margin-top:14px;padding:8px 14px;border:1px solid var(--gold);color:var(--gold2);border-radius:999px;font-size:14px}
 .gallery figure{break-inside:avoid;margin-bottom:18px;cursor:zoom-in}
 .gallery img{width:100%;border-radius:4px;transition:.3s}
 .gallery figure:hover img{opacity:.85}
@@ -121,7 +131,7 @@ footer a{color:var(--gold)}
 </head>
 <body>
 
-<div class="xmas">🎄 <b>Christmas commissions are open</b> — a hand-painted portrait is a gift they'll keep forever. Spots are limited. <a href="#request">Reserve yours →</a></div>
+<div class="xmas">🎄 <b>Order by <span class="xd-date">December 1</span> for Christmas</b> · <span class="xd-count"></span> Spots are limited. <a href="#request">Reserve yours →</a></div>
 
 <div class="wrap">
   <nav>
@@ -139,6 +149,7 @@ footer a{color:var(--gold)}
         <a class="btn ghost" href="#work">See the work</a>
       </div>
       <p class="price">Portraits from <b>$800</b></p>
+      <span class="deadline">🎄 Christmas orders close <span class="xd-date">December 1</span></span>
     </div>
     <figure class="frame">
       <img src="img/self-portrait.jpg" alt="Katrina Ream beside her hand-painted self-portrait" width="980" height="1225">
@@ -160,11 +171,25 @@ footer a{color:var(--gold)}
 
   <div class="wrap">
     <div class="gallery" id="gallery">
-      <figure><img src="img/kat-marilyn.jpg" alt="Katrina Ream holding her hand-painted Marilyn Monroe portrait"><figcaption>Marilyn Monroe</figcaption></figure>
       <figure><img src="img/cowboy.jpg" alt="Hand-painted portrait of a smiling man in a wide-brim hat"><figcaption>Portrait, 2022</figcaption></figure>
-      <figure><img src="img/kat-tattoo.jpg" alt="Katrina Ream holding a hand-painted portrait of a tattooed man"><figcaption>Custom portrait</figcaption></figure>
       <figure><img src="img/gentleman.jpg" alt="Hand-painted portrait of an older man in a suit and tie"><figcaption>Portrait, 2022</figcaption></figure>
       <figure><img src="img/couple.jpg" alt="Painted portrait of a couple embracing"><figcaption>Couple's portrait</figcaption></figure>
+    </div>
+
+    <div class="withwork">
+      <div class="head">
+        <div><div class="eyebrow">Katrina with her work</div><h2>Real paintings, real size</h2><p>Every one of these was painted by hand. Here she is beside the finished canvases.</p></div>
+        <span class="hint">Swipe →</span>
+      </div>
+      <div class="strip" id="strip">
+        <figure><img src="img/kat-marilyn.jpg" alt="Katrina Ream holding her Marilyn Monroe portrait"><figcaption>Marilyn Monroe</figcaption></figure>
+        <figure><img src="img/couple-held.jpg" alt="Katrina Ream beside a couple's portrait in front of desert mountains"><figcaption>Couple's portrait</figcaption></figure>
+        <figure><img src="img/dog-held.jpg" alt="Katrina Ream holding a painted portrait of an Australian Shepherd"><figcaption>Pet portrait</figcaption></figure>
+        <figure><img src="img/kat-tattoo.jpg" alt="Katrina Ream holding a portrait of a tattooed man"><figcaption>Custom portrait</figcaption></figure>
+        <figure><img src="img/hooded-held.jpg" alt="Katrina Ream sitting beside a portrait of a woman in a hood"><figcaption>Portrait</figcaption></figure>
+        <figure><img src="img/easel-marilyn.jpg" alt="Katrina Ream at her easel with a Marilyn Monroe painting"><figcaption>At the easel</figcaption></figure>
+        <figure><img src="img/kat-soldier.jpg" alt="Katrina Ream with a finished Marine portrait"><figcaption>Memorial portrait</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
@@ -234,7 +259,7 @@ footer a{color:var(--gold)}
         <label>Anything Katrina should know?</label>
         <textarea rows="4" placeholder="Who is it, what does it mean to you, and when do you need it by?"></textarea>
         <button class="btn" type="submit">Send my request</button>
-        <p class="small">Portraits from $800 · Katrina replies personally</p>
+        <p class="small">Portraits from $800 · Christmas orders close <span class="xd-date">December 1</span> · Katrina replies personally</p>
       </form>
       <div class="thanks" id="thanks"><h3>Thank you!</h3><p style="color:var(--muted)">Katrina will be in touch soon about your portrait.</p></div>
     </div>
@@ -250,10 +275,11 @@ footer a{color:var(--gold)}
 
 <script>
 const lb=document.getElementById('lb');
-document.querySelectorAll('#gallery img,.ba img').forEach(i=>i.addEventListener('click',()=>{lb.querySelector('img').src=i.src;lb.classList.add('on')}));
+document.querySelectorAll('#gallery img,.ba img,#strip img').forEach(i=>i.addEventListener('click',()=>{lb.querySelector('img').src=i.src;lb.classList.add('on')}));
 lb.addEventListener('click',()=>lb.classList.remove('on'));
 document.getElementById('file').addEventListener('change',e=>{const f=e.target.files[0];if(f)document.getElementById('drop').firstChild.textContent='✅ '+f.name+' ';});
 document.getElementById('f').addEventListener('submit',e=>{e.preventDefault();e.target.style.display='none';document.getElementById('thanks').style.display='block';});
+(function(){const now=new Date(),x=new Date(now.getFullYear(),11,25),d=Math.ceil((x-now)/864e5);const el=document.querySelector('.xd-count');if(el&&d>0)el.textContent=d+(d===1?' day':' days')+' until Christmas.';})();
 </script>
 </body>
 </html>
